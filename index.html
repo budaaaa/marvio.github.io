@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script>
+        // Prevent the browser from trying to restore the scroll position on refresh,
+        // which causes jumping and shifting when combined with sticky/transform layouts.
+        if ("scrollRestoration" in history) {
+            history.scrollRestoration = "manual";
+        }
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marvio | Operations Automation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            /* Marvio Optimistic Ocean Palette */
+            --bg-primary: #f8f8ff;
+            /* Bright, foamy waves */
+            --bg-secondary: #f5deb3;
+            /* Warm, light sandy beach tone */
+            --bg-tertiary: #87ceeb;
+            /* Clear sunny-day ocean sky */
+            --text-dark: #0d47a1;
+            /* Dark, deep ocean water */
+            --text-muted: #a0522d;
+            /* Driftwood and rocky shores */
+            --accent: #ff6b6b;
+            /* Vibrant coral reef pink */
+            --accent-glow: rgba(255, 107, 107, 0.15);
+            --indicator: #48d1cc;
+            /* Light, soft greenish-blue */
+            --divider: rgba(13, 71, 161, 0.08);
+            /* Dark water low opacity */
+
+            --font-sans: "Inter", sans-serif;
+            --font-mono: "Space Mono", monospace;
+
+            --space-xs: 1rem;
+            --space-sm: 2rem;
+            --space-md: 4rem;
+            --space-lg: 8rem;
+            --space-xl: 12rem;
+
+            --transition-snap: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-smooth: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-primary);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-mono {
+            font-family: var(--font-mono);
+            letter-spacing: -0.03em;
+            color: var(--text-dark);
+        }
+
+        h1 {
+            font-size: clamp(3rem, 7vw, 6rem);
+            line-height: 1.05;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+            line-height: 1.6;
+            color: var(--text-dark);
+            font-weight: 400;
+            max-width: 48ch;
+            opacity: 0.85;
+        }
+
+        .label {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot,
+        .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+            will-change: transform;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            transition:
+                width 0.2s,
+                height 0.2s,
+                background-color 0.2s;
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--accent);
+            transition:
+                transform 0.1s ease-out,
+                width 0.2s,
+                height 0.2s,
+                background-color 0.2s;
+        }
+
+        .hovering .cursor-outline {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-glow);
+            border-color: transparent;
+            mix-blend-mode: multiply;
+        }
+
+        /* Form Elements */
+        input,
+        textarea {
+            transition: var(--transition-snap);
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--indicator) !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: var(--space-xl) 0;
+            position: relative;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: var(--transition-smooth);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Standalone Logo */
+        .logo {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            color: var(--text-dark);
+        }
+
+        .logo span {
+            font-family: var(--font-sans);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.05em;
+            transition: color 0.4s ease;
+        }
+
+        .logo.dark-bg span {
+            color: var(--bg-primary);
+        }
+
+        /* Floating Line Navigation */
+        .line-nav {
+            position: fixed;
+            top: 50%;
+            left: 2rem;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            /* Lines close together by default */
+            z-index: 100;
+            --nav-color: var(--text-dark);
+            /* Default to dark blue for light backgrounds (Hero, etc.) */
+            --nav-hover: var(--accent);
+            transition:
+                gap 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                --nav-color 0.4s ease;
+        }
+
+        .line-nav:hover {
+            gap: 1.5rem;
+            /* Text spreads apart when hovering */
+        }
+
+        .line-nav.dark-bg {
+            --nav-color: var(--bg-primary);
+            /* Pure white for dark backgrounds (CTA, Footer) */
+            --nav-hover: var(--bg-primary);
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            position: relative;
+            height: 24px;
+            width: 32px;
+            /* Base hit area */
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            color: var(--nav-color);
+        }
+
+        .line-nav:hover .nav-item {
+            width: 160px;
+            /* Expand hit area on hover of the container */
+        }
+
+        .nav-line {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--nav-color);
+            opacity: 0.4;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: left center;
+        }
+
+        .nav-item:hover .nav-line {
+            opacity: 0.8;
+            background-color: var(--nav-hover);
+            width: 32px;
+        }
+
+        .nav-text {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--nav-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            white-space: nowrap;
+            letter-spacing: 0.05em;
+        }
+
+        /* Container Hover Effects */
+        .line-nav:hover .nav-line {
+            opacity: 0;
+            transform: scaleX(0);
+            /* Hide line when we show text */
+        }
+
+        .line-nav:hover .nav-text {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        /* Individual Item Hover Effects (when expanded) */
+        .line-nav:hover .nav-item:hover .nav-text {
+            color: var(--nav-hover);
+            transform: translateX(5px);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background-color: var(--text-dark);
+            color: white;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            letter-spacing: 0.05em;
+            transition: var(--transition-snap);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--indicator);
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+        }
+
+        .btn:hover::before {
+            transform: translateY(0);
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        /* Hero */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            position: relative;
+            z-index: 10;
+            padding-right: 20%;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 75%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.15;
+            mask-image: linear-gradient(to right, transparent, black 40%);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 40%);
+            mix-blend-mode: luminosity;
+        }
+
+        .highlight {
+            color: var(--accent);
+        }
+
+        /* Problem / Why Us */
+        #why-us {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--divider);
+            border-bottom: 1px solid var(--divider);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .img-card {
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(13, 71, 161, 0.08);
+            /* Removed aspect ratio to enlarge images */
+        }
+
+        .img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Services / Methodology */
+        #services-wrapper {
+            position: relative;
+            height: 500vh;
+            background-color: var(--bg-primary);
+        }
+
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .horizontal-scroll {
+            display: flex;
+            width: 400vw;
+            height: 100%;
+            will-change: transform;
+        }
+
+        .process-step {
+            width: 100vw;
+            /* Take up the full width of the current container bounds */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0;
+            position: relative;
+        }
+
+        .process-step h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            max-width: 600px;
+        }
+
+        .process-step-num {
+            font-family: var(--font-mono);
+            font-size: 15vw;
+            font-weight: 700;
+            color: var(--bg-tertiary);
+            line-height: 1;
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Team */
+        #team {
+            background-color: var(--bg-primary);
+            padding-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--divider);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .team-member {
+            padding: 2.5rem;
+            border: 1px solid var(--divider);
+            background: var(--bg-primary);
+            transition: var(--transition-snap);
+        }
+
+        .team-member:hover {
+            border-color: var(--indicator);
+            box-shadow: 0 10px 30px rgba(72, 209, 204, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .label {
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* CTA */
+        #cta {
+            text-align: center;
+            background-color: var(--text-dark);
+            color: var(--bg-primary);
+        }
+
+        #cta h2,
+        #cta p {
+            color: var(--bg-primary);
+        }
+
+        #cta p {
+            margin: 0 auto 3rem auto;
+            opacity: 0.8;
+        }
+
+        #cta .btn {
+            background-color: var(--indicator);
+            color: var(--text-dark);
+        }
+
+        #cta .btn::before {
+            background-color: white;
+        }
+
+        #cta .btn span {
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            padding: 4rem 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            color: var(--bg-primary);
+            opacity: 0.8;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 1;
+        }
+
+        .footer-logo svg {
+            color: var(--bg-primary);
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer-logo span {
+            font-weight: 700;
+            font-family: var(--font-sans);
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .line-nav {
+                display: none;
+                /* Hide floating nav on mobile */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <a href="#" class="logo" data-hover="true">
+        <img src="assets/logo.png" alt="Marvio Logo" style="width: 32px; height: 32px; display: block" />
+        <span>marvio</span>
+    </a>
+
+    <!-- Middle-Left Floating Line Nav -->
+    <div class="line-nav">
+        <a href="#why-us" class="nav-item" data-hover="true">
+            <span class="nav-line"></span>
+            <span class="nav-text">About</span>
+        </a>
+        <a href="#services-wrapper" class="nav-item" data-hover="true">
+            <span class="nav-line"></span>
+            <span class="nav-text">Services</span>
+        </a>
+        <a href="#team" class="nav-item" data-hover="true">
+            <span class="nav-line"></span>
+            <span class="nav-text">Team</span>
+        </a>
+        <a href="#cta" class="nav-item" data-hover="true">
+            <span class="nav-line"></span>
+            <span class="nav-text">Get in Touch</span>
+        </a>
+    </div>
+
+    <section id="hero" class="reveal">
+        <img src="assets/warehouse.png" class="hero-bg-image" alt="Logistics Warehouse" />
+        <div class="container" style="width: 100%">
+            <div class="hero-content">
+                <span class="label">Marvio Automation & Efficiency Consulting</span>
+                <h1>
+                    Operations, engineered.<br />Logistics,
+                    <span class="highlight">automated.</span>
+                </h1>
+                <p>
+                    Unlock hidden capacity in your operations team by optimizing how
+                    your people work with emails, documents, shipment visibility, and
+                    manual workflows.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section id="why-us">
+        <div class="container grid-2">
+            <div class="reveal">
+                <span class="label">Why Work With Us</span>
+                <h2>Expertise backed by reality.</h2>
+                <p>
+                    We combine logistics expertise with technology know-how to deliver
+                    practical solutions.
+                </p>
+                <br />
+                <p>
+                    We understand the unique challenges faced by logistics operations
+                    teams. Our experience comes from working directly with global
+                    logistics companies to identify and implement automation solutions
+                    that make a real difference in day-to-day operations.
+                </p>
+                <ul style="
+              margin-top: 2rem;
+              padding-left: 1.5rem;
+              line-height: 1.6;
+              color: var(--text-dark);
+              opacity: 0.85;
+            ">
+                    <li style="margin-bottom: 0.5rem">
+                        Deep experience in logistics operations, digitalisation, and
+                        engineering.
+                    </li>
+                    <li style="margin-bottom: 0.5rem">
+                        Focused on practical, high-ROI solutions — not selling software.
+                    </li>
+                    <li>
+                        Background in building automation pipelines used by top global
+                        logistics companies.
+                    </li>
+                </ul>
+            </div>
+            <div class="img-card reveal" data-hover="true" style="transition-delay: 0.2s">
+                <img src="assets/ship.png" alt="Ocean Cargo Ship" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Horizontal Scroll -->
+    <div id="services-wrapper">
+        <div class="sticky-container">
+            <div class="horizontal-scroll" id="h-scroll">
+                <div class="process-step">
+                    <div class="process-step-num">01</div>
+                    <div class="container" style="width: 100%">
+                        <span class="label">Our Services</span>
+                        <h2>Operational<br />Workflow Audits</h2>
+                        <p>
+                            Map how your teams currently work with emails, PDFs,
+                            spreadsheets, customer portals, and shipment visibility tools.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-step-num">02</div>
+                    <div class="container" style="width: 100%">
+                        <span class="label">Our Services</span>
+                        <h2>Quick Wins<br />Identification</h2>
+                        <p>
+                            Find and prioritize the biggest time-saving and
+                            shipment-tracking efficiency opportunities waiting in your
+                            business right now.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-step-num">03</div>
+                    <div class="container" style="width: 100%">
+                        <span class="label">Our Services</span>
+                        <h2>Automation<br />Strategy Design</h2>
+                        <p>
+                            Build a practical roadmap for automating repetitive tasks and
+                            improving shipment updates and communication flows across
+                            systems.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-step-num">04</div>
+                    <div class="container" style="width: 100%">
+                        <span class="label" style="color: var(--indicator)">Our Services</span>
+                        <h2>Prototype<br />Support</h2>
+                        <p>
+                            Build lightweight proofs-of-concept to show impact and ROI
+                            before committing to full-scale automation rollouts.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leadership -->
+    <section id="team" class="container reveal">
+        <span class="label">Leadership</span>
+        <h2>Guided by experience.</h2>
+        <p>Combining deep operational knowledge with technical architecture.</p>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <h3>Kristi Buda</h3>
+                <span class="label">Founder</span>
+                <p style="
+              margin-top: 1rem;
+              font-size: 1.1rem;
+              line-height: 1.6;
+              color: var(--text-dark);
+              opacity: 0.85;
+            ">
+                    Brings over a decade of experience building complex software systems
+                    to help companies streamline and scale their operations through
+                    intelligent AI-powered automations.
+                </p>
+                <a href="https://buda.dev" target="_blank" style="
+              display: inline-block;
+              margin-top: 1.5rem;
+              color: var(--accent);
+              font-family: var(--font-mono);
+              font-size: 0.85rem;
+              letter-spacing: 0.05em;
+              text-transform: uppercase;
+              text-decoration: none;
+            ">Profile →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+        <div class="container reveal cta-container">
+            <h2>Ready to streamline your operations?</h2>
+            <p>
+                First consultation call is free — tell us your challenges and we'll
+                suggest practical ideas for improving your operations efficiency.
+            </p>
+
+            <form style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: left;
+            margin-top: 2rem;
+          ">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem">
+                    <input type="text" placeholder="Name" required style="
+                padding: 1rem;
+                border-radius: 2px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                background: rgba(255, 255, 255, 0.05);
+                color: var(--bg-primary);
+                font-family: var(--font-sans);
+                outline: none;
+              " />
+                    <input type="email" placeholder="Email" required style="
+                padding: 1rem;
+                border-radius: 2px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                background: rgba(255, 255, 255, 0.05);
+                color: var(--bg-primary);
+                font-family: var(--font-sans);
+                outline: none;
+              " />
+                </div>
+                <textarea placeholder="Tell us about your operational bottlenecks..." rows="5" required style="
+              padding: 1rem;
+              border-radius: 2px;
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              background: rgba(255, 255, 255, 0.05);
+              color: var(--bg-primary);
+              font-family: var(--font-sans);
+              outline: none;
+              resize: none;
+            "></textarea>
+                <button type="submit" class="btn" data-hover="true" style="
+              border: none;
+              cursor: none;
+              margin-top: 0.5rem;
+              align-self: flex-start;
+            ">
+                    <span>Submit Request</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/logo-white.png" alt="Marvio Logo" style="width: 32px; height: 32px; display: block" />
+                <span>marvio.</span>
+            </div>
+            <div>&copy; Copyright Marvio All Rights Reserved</div>
+            <div style="display: flex; gap: 2rem">
+                <a href="mailto:contact@marvio.co.uk" style="color: inherit; text-decoration: none"
+                    data-hover="true">contact@marvio.co.uk</a>
+                <a href="https://www.linkedin.com/in/andrii-kysylevskyi/" target="_blank"
+                    style="color: inherit; text-decoration: none" data-hover="true">Andrii's LinkedIn</a>
+                <a href="https://www.linkedin.com/in/budakristi/" target="_blank"
+                    style="color: inherit; text-decoration: none" data-hover="true">Kristi's LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Custom Cursor
+        const dot = document.querySelector(".cursor-dot");
+        const outline = document.querySelector(".cursor-outline");
+        const hoverables = document.querySelectorAll(
+            '[data-hover="true"], a, button',
+        );
+
+        let mouse = { x: 0, y: 0 };
+        let outlinePos = { x: 0, y: 0 };
+
+        window.addEventListener("mousemove", (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            dot.style.transform = `translate(${mouse.x}px, ${mouse.y}px)`;
+        });
+
+        function animateCursor() {
+            outlinePos.x += (mouse.x - outlinePos.x) * 0.15;
+            outlinePos.y += (mouse.y - outlinePos.y) * 0.15;
+            outline.style.transform = `translate(${outlinePos.x}px, ${outlinePos.y}px)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        hoverables.forEach((el) => {
+            el.addEventListener("mouseenter", () =>
+                document.body.classList.add("hovering"),
+            );
+            el.addEventListener("mouseleave", () =>
+                document.body.classList.remove("hovering"),
+            );
+        });
+
+        // Intersection Observer for reveals
+        const observerOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.15,
+        };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document
+            .querySelectorAll(".reveal")
+            .forEach((el) => observer.observe(el));
+
+        // Horizontal Scroll Setup
+        const processWrapper = document.getElementById("services-wrapper");
+        const hScroll = document.getElementById("h-scroll");
+
+        const updateHorizontalScroll = () => {
+            if (!processWrapper || !hScroll) return;
+
+            const wrapperRect = processWrapper.getBoundingClientRect();
+            // We have 4 slides = 400vw total width.
+            // This means we have 3 screens of scrolling sideways: -300vw translation max.
+
+            if (
+                wrapperRect.top < 0 &&
+                wrapperRect.top > -(wrapperRect.height - window.innerHeight)
+            ) {
+                // We are inside the pinned section.
+                const scrollProgress =
+                    Math.abs(wrapperRect.top) /
+                    (wrapperRect.height - window.innerHeight);
+                // Translate up to -300vw
+                const translateX = scrollProgress * -300;
+                hScroll.style.transform = `translate3d(${translateX}vw, 0, 0)`;
+            } else if (wrapperRect.top >= 0) {
+                hScroll.style.transform = `translate3d(0, 0, 0)`;
+            } else {
+                hScroll.style.transform = `translate3d(-300vw, 0, 0)`;
+            }
+        };
+
+        window.addEventListener("scroll", updateHorizontalScroll);
+        // Initialize position immediately on load to prevent layout shift
+        updateHorizontalScroll();
+        // Nav Color Swap Observer
+        const lineNav = document.querySelector(".line-nav");
+        const headerLogoAnch = document.querySelector(".logo");
+        const headerLogo = document.querySelector(".logo img");
+        if (lineNav) {
+            const sections = document.querySelectorAll(
+                "section, footer, #services-wrapper",
+            );
+            const navObserver = new IntersectionObserver(
+                (entries) => {
+                    // Find the entry that is mostly intersecting the middle of the screen
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            // The CTA and Footer sections are the ONLY dark sections. Hero is a light background.
+                            if (
+                                entry.target.id === "cta" ||
+                                entry.target.tagName.toLowerCase() === "footer"
+                            ) {
+                                lineNav.classList.add("dark-bg"); // Turns lines white
+                            } else {
+                                lineNav.classList.remove("dark-bg"); // Turns lines primary blue (default)
+                            }
+                        }
+                    });
+                },
+                {
+                    // Observe a thin horizontal line across the vertical middle of the screen
+                    rootMargin: "-49% 0px -49% 0px",
+                },
+            );
+
+            const logoObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            if (
+                                entry.target.id === "cta" ||
+                                entry.target.tagName.toLowerCase() === "footer"
+                            ) {
+                                if (headerLogo) headerLogo.src = "assets/logo-white.png"; // Swaps to white logo
+                                if (headerLogoAnch) headerLogoAnch.classList.add("dark-bg");
+                            } else {
+                                if (headerLogo) headerLogo.src = "assets/logo.png"; // Swaps to default logo
+                                if (headerLogoAnch)
+                                    headerLogoAnch.classList.remove("dark-bg");
+                            }
+                        }
+                    });
+                },
+                {
+                    // Observe a thin horizontal line near the top of the screen where the logo sits
+                    rootMargin: "-5% 0px -95% 0px",
+                },
+            );
+
+            sections.forEach((sec) => {
+                navObserver.observe(sec);
+                logoObserver.observe(sec);
+            });
+        }
+    </script>
+</body>
+
+</html>
