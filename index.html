@@ -14,7 +14,37 @@
     <title>Marvio | AI-Powered Business Operations & Automation</title>
     <meta name="description"
         content="Bringing AI and automating and optimising business operations across different industries. Automate, optimise, thrive!" />
-    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <!-- Favicons -->
+
+    <!-- SVG Favicon (light for dark theme) -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/icon-light-32x32.svg" media="(prefers-color-scheme: dark)">
+    <!-- SVG Favicon (dark for light theme) -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/icon-32x32.svg" media="(prefers-color-scheme: light)">
+
+    <!-- PNG Favicons for dark theme (light icons) -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon-light-16x16.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-light-32x32.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/icon-light-48x48.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/icon-light-64x64.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/icon-light-96x96.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="128x128" href="assets/icons/icon-light-128x128.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/icons/icon-light-256x256.png" media="(prefers-color-scheme: dark)">
+
+    <!-- PNG Favicons for light theme (dark icons) -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon-16x16.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32x32.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/icon-48x48.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/icon-64x64.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/icon-96x96.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="128x128" href="assets/icons/icon-128x128.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/icons/icon-256x256.png" media="(prefers-color-scheme: light)">
+
+    <!-- ICO fallback -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon-light.ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" media="(prefers-color-scheme: light)">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/icon-light-180x180.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -60,7 +90,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -122,48 +155,6 @@
             display: inline-block;
         }
 
-        /* Custom Cursor */
-        .cursor-dot,
-        .cursor-outline {
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-            will-change: transform;
-        }
-
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent);
-            transition:
-                width 0.2s,
-                height 0.2s,
-                background-color 0.2s;
-        }
-
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--accent);
-            transition:
-                transform 0.1s ease-out,
-                width 0.2s,
-                height 0.2s,
-                background-color 0.2s;
-        }
-
-        .hovering .cursor-outline {
-            width: 60px;
-            height: 60px;
-            background-color: var(--accent-glow);
-            border-color: transparent;
-            mix-blend-mode: multiply;
-        }
-
         /* Form Elements */
         input,
         textarea {
@@ -195,8 +186,9 @@
 
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: var(--transition-smooth);
+            transform: translateY(24px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.active {
@@ -438,69 +430,48 @@
             object-fit: cover;
         }
 
-        /* Services / Methodology */
+        /* Services */
         #services-wrapper {
             position: relative;
-            height: 500vh;
             background-color: var(--bg-primary);
+            padding: var(--space-xl) 0;
         }
 
-        .sticky-container {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
+        .services-header {
+            margin-bottom: var(--space-lg);
         }
 
-        .horizontal-scroll {
-            display: flex;
-            width: 400vw;
-            height: 100%;
-            will-change: transform;
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
         }
 
-        .process-step {
-            width: 100vw;
-            /* Take up the full width of the current container bounds */
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0;
-            position: relative;
+        .service-card {
+            padding: var(--space-md) 0;
         }
 
-        .process-step h2 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-        }
-
-        .process-step p {
-            max-width: 600px;
-        }
-
-        .process-step-num {
+        .service-card-num {
             font-family: var(--font-mono);
-            font-size: 15vw;
+            font-size: 0.875rem;
             font-weight: 700;
-            color: var(--bg-tertiary);
-            line-height: 1;
-            position: absolute;
-            top: 50%;
-            right: 10%;
-            transform: translateY(-50%);
-            z-index: -1;
-            opacity: 0.3;
+            color: var(--indicator);
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card p {
+            max-width: 480px;
         }
 
         /* Team */
         #team {
             background-color: var(--bg-primary);
             padding-bottom: var(--space-xl);
-            border-bottom: 1px solid var(--divider);
         }
 
         .team-grid {
@@ -563,6 +534,48 @@
             color: var(--text-dark);
         }
 
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--text-dark);
+            border: 2px solid var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-snap);
+        }
+
+        .scroll-top svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--bg-primary);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .scroll-top:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .scroll-top:active {
+            transform: translateY(2px);
+        }
+
         /* Footer */
         footer {
             background-color: var(--text-dark);
@@ -611,13 +624,19 @@
             gap: 2rem;
         }
 
+        /* Hide custom cursor on touch/non-hover devices */
         @media (max-width: 768px) {
-            section {
+            section,
+            #services-wrapper {
                 padding: var(--space-lg) 1rem;
             }
 
             .container {
                 padding: 0 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
             .hero-content {
@@ -657,9 +676,6 @@
 </head>
 
 <body>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
     <a href="#" class="logo" data-hover="true">
         <img src="assets/logo.png" alt="Marvio Logo" style="width: 32px; height: 32px; display: block" />
         <span>marvio</span>
@@ -746,57 +762,68 @@
         </div>
     </section>
 
-    <!-- Services / Horizontal Scroll -->
+    <!-- Services -->
     <div id="services-wrapper">
-        <div class="sticky-container">
-            <div class="horizontal-scroll" id="h-scroll">
-                <div class="process-step">
-                    <div class="process-step-num">01</div>
-                    <div class="container" style="width: 100%">
-                        <span class="label">Our Services</span>
-                        <h2>Operational<br />Workflow Audits</h2>
-                        <p>
-                            Map how your teams currently work with emails, PDFs,
-                            spreadsheets, CRM systems, and other daily operational tools.
-                        </p>
-                    </div>
+        <div class="container">
+            <div class="services-header reveal">
+                <span class="label">Our Services</span>
+                <h2>What we do.</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card reveal" style="transition-delay: 0s">
+                    <div class="service-card-num">01</div>
+                    <h3>Operational<br />Workflow Audits</h3>
+                    <p>
+                        Map how your teams currently work with emails, PDFs,
+                        spreadsheets, CRM systems, and other daily operational tools.
+                    </p>
                 </div>
 
-                <div class="process-step">
-                    <div class="process-step-num">02</div>
-                    <div class="container" style="width: 100%">
-                        <span class="label">Our Services</span>
-                        <h2>Quick Wins<br />Identification</h2>
-                        <p>
-                            Find and prioritize the biggest time-saving and
-                            process optimisation efficiency opportunities waiting in your
-                            business right now.
-                        </p>
-                    </div>
+                <div class="service-card reveal" style="transition-delay: 0.2s">
+                    <div class="service-card-num">02</div>
+                    <h3>Quick Wins<br />Identification</h3>
+                    <p>
+                        Find and prioritize the biggest time-saving and
+                        process optimisation efficiency opportunities waiting in your
+                        business right now.
+                    </p>
                 </div>
 
-                <div class="process-step">
-                    <div class="process-step-num">03</div>
-                    <div class="container" style="width: 100%">
-                        <span class="label">Our Services</span>
-                        <h2>Automation<br />Strategy Design</h2>
-                        <p>
-                            Build a practical roadmap for automating repetitive tasks, introducing AI capabilities, and
-                            improving communication and data flows across all your systems.
-                        </p>
-                    </div>
+                <div class="service-card reveal" style="transition-delay: 0.4s">
+                    <div class="service-card-num">03</div>
+                    <h3>Automation<br />Strategy Design</h3>
+                    <p>
+                        Build a practical roadmap for automating repetitive tasks, introducing AI capabilities, and
+                        improving communication and data flows across all your systems.
+                    </p>
                 </div>
 
-                <div class="process-step">
-                    <div class="process-step-num">04</div>
-                    <div class="container" style="width: 100%">
-                        <span class="label" style="color: var(--indicator)">Our Services</span>
-                        <h2>Prototype<br />Support</h2>
-                        <p>
-                            Build lightweight proofs-of-concept to show impact and ROI
-                            before committing to full-scale automation rollouts.
-                        </p>
-                    </div>
+                <div class="service-card reveal" style="transition-delay: 0.6s">
+                    <div class="service-card-num">04</div>
+                    <h3>Prototype<br />Support</h3>
+                    <p>
+                        Build lightweight proofs-of-concept to show impact and ROI
+                        before committing to full-scale automation rollouts.
+                    </p>
+                </div>
+
+                <div class="service-card reveal" style="transition-delay: 0.8s">
+                    <div class="service-card-num">05</div>
+                    <h3>Data Extraction<br />Pipelines</h3>
+                    <p>
+                        Design and deploy intelligent pipelines that pull, clean, and structure
+                        data from documents, APIs, and legacy systems, ready for analysis or automation.
+                    </p>
+                </div>
+
+                <div class="service-card reveal" style="transition-delay: 1s">
+                    <div class="service-card-num">06</div>
+                    <h3>Real-Time<br />Systems Engineering</h3>
+                    <p>
+                        Architect high-concurrency platforms built to process thousands of events
+                        per second, from live data feeds to mission-critical integrations.
+                    </p>
                 </div>
             </div>
         </div>
@@ -860,8 +887,12 @@
             text-align: left;
             margin-top: 2rem;
           ">
+                <input type="hidden" name="access_key" value="8cefe3b2-6bbb-41fb-a3b4-b4e495a3fadd">
+                <input type="hidden" name="subject" value="New Consultation Request from marvio.co.uk">
+                <!-- Honeypot field — hidden from humans, catches bots -->
+                <input type="checkbox" name="botcheck" style="display: none;">
                 <div class="form-grid">
-                    <input type="text" id="contact-name" placeholder="Name" required style="
+                    <input type="text" name="name" placeholder="Name" required style="
                 padding: 1rem;
                 border-radius: 2px;
                 border: 1px solid rgba(255, 255, 255, 0.2);
@@ -870,7 +901,7 @@
                 font-family: var(--font-sans);
                 outline: none;
               " />
-                    <input type="email" id="contact-email" placeholder="Email" required style="
+                    <input type="email" name="email" placeholder="Email" required style="
                 padding: 1rem;
                 border-radius: 2px;
                 border: 1px solid rgba(255, 255, 255, 0.2);
@@ -880,7 +911,7 @@
                 outline: none;
               " />
                 </div>
-                <textarea id="contact-message" placeholder="Tell us about your operational bottlenecks..." rows="5"
+                <textarea name="message" placeholder="Tell us about your operational bottlenecks..." rows="5"
                     required style="
               padding: 1rem;
               border-radius: 2px;
@@ -891,9 +922,14 @@
               outline: none;
               resize: none;
             "></textarea>
+                <div id="form-status" style="
+              font-family: var(--font-mono);
+              font-size: 0.875rem;
+              letter-spacing: 0.05em;
+              display: none;
+            "></div>
                 <button type="submit" class="btn" data-hover="true" style="
               border: none;
-              cursor: none;
               margin-top: 0.5rem;
               align-self: flex-start;
             ">
@@ -902,34 +938,40 @@
             </form>
 
             <script>
-                const disposableDomains = [
-                    'tempmail.com', 'guerrillamail.com', 'mailinator.com',
-                    'yopmail.com', 'throwawaymail.com', 'temp-mail.org', 'fakeinbox.com',
-                    'getnada.com', 'maildrop.cc'
-                ];
-
-                document.getElementById('contact-form').addEventListener('submit', function (e) {
+                document.getElementById('contact-form').addEventListener('submit', async function (e) {
                     e.preventDefault();
 
-                    const name = document.getElementById('contact-name').value;
-                    const email = document.getElementById('contact-email').value;
-                    const message = document.getElementById('contact-message').value;
+                    const form = e.target;
+                    const status = document.getElementById('form-status');
+                    const submitBtn = form.querySelector('button[type="submit"] span');
+                    const originalText = submitBtn.textContent;
 
-                    // Disposable email validation
-                    const domain = email.split('@')[1]?.toLowerCase();
-                    if (disposableDomains.includes(domain)) {
-                        alert('Please use a valid business or personal email address instead of a disposable assigned address.');
-                        return;
+                    submitBtn.textContent = 'Sending...';
+                    status.style.display = 'none';
+
+                    try {
+                        const response = await fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            body: new FormData(form)
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            status.textContent = 'Message sent successfully. We\'ll be in touch!';
+                            status.style.color = 'var(--indicator)';
+                            status.style.display = 'block';
+                            form.reset();
+                        } else {
+                            throw new Error(data.message || 'Something went wrong.');
+                        }
+                    } catch (error) {
+                        status.textContent = 'Failed to send. Please email us at contact@marvio.co.uk';
+                        status.style.color = 'var(--accent)';
+                        status.style.display = 'block';
                     }
 
-                    const subject = encodeURIComponent('New Consultation Request from ' + name);
-                    const body = encodeURIComponent(
-                        'Name: ' + name + '\n' +
-                        'Email: ' + email + '\n\n' +
-                        'Message:\n' + message
-                    );
-
-                    window.location.href = 'mailto:contact@marvio.co.uk?subject=' + subject + '&body=' + body;
+                    submitBtn.textContent = originalText;
                 });
             </script>
         </div>
@@ -950,40 +992,13 @@
         </div>
     </footer>
 
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="18 15 12 9 6 15" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
     <script>
-        // Custom Cursor
-        const dot = document.querySelector(".cursor-dot");
-        const outline = document.querySelector(".cursor-outline");
-        const hoverables = document.querySelectorAll(
-            '[data-hover="true"], a, button',
-        );
-
-        let mouse = { x: 0, y: 0 };
-        let outlinePos = { x: 0, y: 0 };
-
-        window.addEventListener("mousemove", (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-            dot.style.transform = `translate(${mouse.x}px, ${mouse.y}px)`;
-        });
-
-        function animateCursor() {
-            outlinePos.x += (mouse.x - outlinePos.x) * 0.15;
-            outlinePos.y += (mouse.y - outlinePos.y) * 0.15;
-            outline.style.transform = `translate(${outlinePos.x}px, ${outlinePos.y}px)`;
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        hoverables.forEach((el) => {
-            el.addEventListener("mouseenter", () =>
-                document.body.classList.add("hovering"),
-            );
-            el.addEventListener("mouseleave", () =>
-                document.body.classList.remove("hovering"),
-            );
-        });
-
         // Intersection Observer for reveals
         const observerOptions = {
             root: null,
@@ -1000,41 +1015,24 @@
         }, observerOptions);
 
         document
-            .querySelectorAll(".reveal")
+            .querySelectorAll(".reveal:not(.service-card)")
             .forEach((el) => observer.observe(el));
 
-        // Horizontal Scroll Setup
-        const processWrapper = document.getElementById("services-wrapper");
-        const hScroll = document.getElementById("h-scroll");
+        // Staggered reveal for service cards — trigger all at once when grid is visible
+        const servicesGrid = document.querySelector(".services-grid");
+        if (servicesGrid) {
+            const gridObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        servicesGrid.querySelectorAll(".service-card.reveal")
+                            .forEach((card) => card.classList.add("active"));
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: "0px", threshold: 0.1 });
+            gridObserver.observe(servicesGrid);
+        }
 
-        const updateHorizontalScroll = () => {
-            if (!processWrapper || !hScroll) return;
-
-            const wrapperRect = processWrapper.getBoundingClientRect();
-            // We have 4 slides = 400vw total width.
-            // This means we have 3 screens of scrolling sideways: -300vw translation max.
-
-            if (
-                wrapperRect.top < 0 &&
-                wrapperRect.top > -(wrapperRect.height - window.innerHeight)
-            ) {
-                // We are inside the pinned section.
-                const scrollProgress =
-                    Math.abs(wrapperRect.top) /
-                    (wrapperRect.height - window.innerHeight);
-                // Translate up to -300vw
-                const translateX = scrollProgress * -300;
-                hScroll.style.transform = `translate3d(${translateX}vw, 0, 0)`;
-            } else if (wrapperRect.top >= 0) {
-                hScroll.style.transform = `translate3d(0, 0, 0)`;
-            } else {
-                hScroll.style.transform = `translate3d(-300vw, 0, 0)`;
-            }
-        };
-
-        window.addEventListener("scroll", updateHorizontalScroll);
-        // Initialize position immediately on load to prevent layout shift
-        updateHorizontalScroll();
         // Nav Color Swap Observer
         const lineNav = document.querySelector(".line-nav");
         const headerLogoAnch = document.querySelector(".logo");
@@ -1095,6 +1093,16 @@
                 logoObserver.observe(sec);
             });
         }
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById("scroll-top");
+        window.addEventListener("scroll", () => {
+            const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            scrollTopBtn.classList.toggle("visible", scrollPercent > 0.25);
+        });
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
     </script>
 </body>
 
