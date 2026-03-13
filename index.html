@@ -2,18 +2,11 @@
 <html lang="en">
 
 <head>
-    <script>
-        // Prevent the browser from trying to restore the scroll position on refresh,
-        // which causes jumping and shifting when combined with sticky/transform layouts.
-        if ("scrollRestoration" in history) {
-            history.scrollRestoration = "manual";
-        }
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marvio | AI-Powered Business Operations & Automation</title>
+    <title>Marvio · AI Engineering & Automations Efficiency</title>
     <meta name="description"
-        content="Bringing AI and automating and optimising business operations across different industries. Automate, optimise, thrive!" />
+        content="Unlock hidden capacity in your business and operations teams by bringing AI to automate and optimise manual workflows, data processing, and day-to-day tasks across any industry." />
     <!-- Favicons -->
 
     <!-- SVG Favicon (light for dark theme) -->
@@ -208,10 +201,10 @@
             z-index: 100;
         }
 
-        .logo svg {
+        .logo img {
             width: 32px;
             height: 32px;
-            color: var(--text-dark);
+            display: block;
         }
 
         .logo span {
@@ -416,6 +409,22 @@
             align-items: center;
         }
 
+        .why-us-list {
+            margin-top: 2rem;
+            padding-left: 1.5rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            opacity: 0.85;
+        }
+
+        .why-us-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .why-us-list li:last-child {
+            margin-bottom: 0;
+        }
+
         .img-card {
             width: 100%;
             border-radius: 4px;
@@ -468,30 +477,71 @@
             max-width: 480px;
         }
 
+        #card-06 {
+            position: relative;
+            overflow: visible;
+        }
+
+        .collab-cursor {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 10;
+            will-change: transform, opacity;
+            transition: opacity 0.4s ease;
+        }
+
+        .collab-cursor svg {
+            width: 16px;
+            height: 16px;
+            display: block;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+        }
+
+        .collab-cursor-tag {
+            position: absolute;
+            top: 16px;
+            left: 10px;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 2px;
+            white-space: nowrap;
+            color: var(--bg-primary);
+        }
+
+        .collab-select {
+            background-color: var(--accent-glow);
+            border-radius: 2px;
+        }
+
+        .collab-caret {
+            border-right: 2px solid;
+            padding-right: 1px;
+        }
+
+        .collab-drag-rect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1.5px dashed;
+            border-radius: 2px;
+            pointer-events: none;
+            z-index: 9;
+            transition: opacity 0.4s ease;
+        }
+
         /* Team */
         #team {
             background-color: var(--bg-primary);
             padding-bottom: var(--space-xl);
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
         .team-member {
-            padding: 2.5rem;
-            border: 1px solid var(--divider);
-            background: var(--bg-primary);
-            transition: var(--transition-snap);
-        }
-
-        .team-member:hover {
-            border-color: var(--indicator);
-            box-shadow: 0 10px 30px rgba(72, 209, 204, 0.1);
-            transform: translateY(-5px);
+            max-width: 720px;
+            margin-top: var(--space-md);
         }
 
         .team-member h3 {
@@ -502,6 +552,37 @@
         .team-member .label {
             color: var(--text-muted);
             margin-bottom: 0;
+        }
+
+        .team-member p {
+            margin-top: 1rem;
+        }
+
+        .team-member-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .team-member-links a {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition-snap);
+        }
+
+        .team-member-links a:hover {
+            color: var(--indicator);
+            transform: translateX(4px);
+        }
+
+        .team-member-links a:active {
+            transform: translateX(4px) scale(0.96);
         }
 
         /* CTA */
@@ -601,16 +682,53 @@
             opacity: 1;
         }
 
-        .footer-logo svg {
-            color: var(--bg-primary);
-            width: 24px;
-            height: 24px;
+        .footer-logo img {
+            width: 32px;
+            height: 32px;
+            display: block;
         }
 
         .footer-logo span {
             font-weight: 700;
             font-family: var(--font-sans);
             font-size: 1.25rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: left;
+            margin-top: 2rem;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            padding: 1rem;
+            border-radius: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--bg-primary);
+            font-family: var(--font-sans);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            resize: none;
+        }
+
+        .contact-form .btn {
+            border: none;
+            margin-top: 0.5rem;
+            align-self: flex-start;
+        }
+
+        .form-status {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            display: none;
         }
 
         .form-grid {
@@ -624,7 +742,11 @@
             gap: 2rem;
         }
 
-        /* Hide custom cursor on touch/non-hover devices */
+        .footer-links a {
+            color: inherit;
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
             section,
             #services-wrapper {
@@ -644,10 +766,6 @@
             }
 
             .grid-2 {
-                grid-template-columns: 1fr;
-            }
-
-            .team-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -676,26 +794,26 @@
 </head>
 
 <body>
-    <a href="#" class="logo" data-hover="true">
-        <img src="assets/logo.png" alt="Marvio Logo" style="width: 32px; height: 32px; display: block" />
+    <a href="#" class="logo">
+        <img src="assets/logo.png" alt="Marvio Logo" />
         <span>marvio</span>
     </a>
 
     <!-- Middle-Left Floating Line Nav -->
     <div class="line-nav">
-        <a href="#why-us" class="nav-item" data-hover="true">
+        <a href="#why-us" class="nav-item">
             <span class="nav-line"></span>
             <span class="nav-text">About</span>
         </a>
-        <a href="#services-wrapper" class="nav-item" data-hover="true">
+        <a href="#services-wrapper" class="nav-item">
             <span class="nav-line"></span>
             <span class="nav-text">Services</span>
         </a>
-        <a href="#team" class="nav-item" data-hover="true">
+        <a href="#team" class="nav-item">
             <span class="nav-line"></span>
             <span class="nav-text">Team</span>
         </a>
-        <a href="#cta" class="nav-item" data-hover="true">
+        <a href="#cta" class="nav-item">
             <span class="nav-line"></span>
             <span class="nav-text">Get in Touch</span>
         </a>
@@ -705,14 +823,15 @@
         <img src="assets/warehouse.png" class="hero-bg-image" alt="Business Operations" />
         <div class="container" style="width: 100%">
             <div class="hero-content">
-                <span class="label">Marvio Automation & Efficiency</span>
+                <span class="label">AI Engineering & Automations Efficiency</span>
                 <h1>
                     Automate optimise<br />
                     <span class="highlight">thrive!</span>
                 </h1>
                 <p>
-                    Unlock hidden capacity in your business and operations teams by bringing AI to automate and optimise
-                    manual workflows, data processing, and day-to-day tasks across any industry.
+                    Unlock hidden capacity in your business and operations teams by bringing
+                    AI to automate and optimise manual workflows, data processing,
+                    and day-to-day tasks across any industry.
                 </p>
             </div>
         </div>
@@ -725,38 +844,22 @@
                 <span class="label">Why Work With Us</span>
                 <h2>Expertise backed by reality.</h2>
                 <p>
-                    We combine cross-industry operational expertise with cutting-edge AI and technology know-how to
-                    deliver
-                    practical solutions.
+                    We combine cross-industry operational expertise with cutting-edge AI and
+                    technology know-how to deliver practical solutions.
                 </p>
-                <br />
-                <p>
-                    We understand the unique challenges faced by modern business operations
-                    teams. Our experience comes from working directly with companies across different industries to
-                    identify and implement AI and automation solutions
-                    that make a real difference in day-to-day efficiency and performance.
+                <p style="margin-top: 1rem">
+                    We understand the unique challenges faced by modern business operations teams.
+                    Our experience comes from working directly with companies across different
+                    industries to identify and implement AI and automation solutions that make
+                    a real difference in day-to-day efficiency and performance.
                 </p>
-                <ul style="
-              margin-top: 2rem;
-              padding-left: 1.5rem;
-              line-height: 1.6;
-              color: var(--text-dark);
-              opacity: 0.85;
-            ">
-                    <li style="margin-bottom: 0.5rem">
-                        Deep experience in business operations, AI integration, digitalisation, and
-                        engineering.
-                    </li>
-                    <li style="margin-bottom: 0.5rem">
-                        Focused on practical, high-ROI solutions - not just selling software.
-                    </li>
-                    <li>
-                        Background in building intelligent automation pipelines used by scaling businesses across
-                        diverse industries.
-                    </li>
+                <ul class="why-us-list">
+                    <li>Deep engineering expertise across AI integration, data systems, and distributed architecture.</li>
+                    <li>Bespoke solutions built for your business - not off-the-shelf software.</li>
+                    <li>Background in building intelligent automation pipelines used by scaling businesses across diverse industries.</li>
                 </ul>
             </div>
-            <div class="img-card reveal" data-hover="true" style="transition-delay: 0.2s">
+            <div class="img-card reveal">
                 <img src="assets/ship.png" alt="Global Business Operations" />
             </div>
         </div>
@@ -775,8 +878,8 @@
                     <div class="service-card-num">01</div>
                     <h3>Operational<br />Workflow Audits</h3>
                     <p>
-                        Map how your teams currently work with emails, PDFs,
-                        spreadsheets, CRM systems, and other daily operational tools.
+                        A full map of how your teams actually work day-to-day, from emails and spreadsheets
+                        to CRMs and legacy tools, pinpointing where time and money are being lost.
                     </p>
                 </div>
 
@@ -784,27 +887,26 @@
                     <div class="service-card-num">02</div>
                     <h3>Quick Wins<br />Identification</h3>
                     <p>
-                        Find and prioritize the biggest time-saving and
-                        process optimisation efficiency opportunities waiting in your
-                        business right now.
+                        The repetitive tasks and broken handoffs hiding in your operations,
+                        identified and prioritised for fast automation with measurable impact.
                     </p>
                 </div>
 
                 <div class="service-card reveal" style="transition-delay: 0.4s">
                     <div class="service-card-num">03</div>
-                    <h3>Automation<br />Strategy Design</h3>
+                    <h3>AI Agents<br />&amp; Automation Engineering</h3>
                     <p>
-                        Build a practical roadmap for automating repetitive tasks, introducing AI capabilities, and
-                        improving communication and data flows across all your systems.
+                        Custom AI agents and automation systems engineered to replace
+                        manual processes, connect your tools, and run your operations end-to-end.
                     </p>
                 </div>
 
                 <div class="service-card reveal" style="transition-delay: 0.6s">
                     <div class="service-card-num">04</div>
-                    <h3>Prototype<br />Support</h3>
+                    <h3>Prototyping<br />&amp; Production Builds</h3>
                     <p>
-                        Build lightweight proofs-of-concept to show impact and ROI
-                        before committing to full-scale automation rollouts.
+                        Whether you need a fast prototype to validate an idea or a
+                        production-grade system built to scale, you get working software either way.
                     </p>
                 </div>
 
@@ -812,16 +914,16 @@
                     <div class="service-card-num">05</div>
                     <h3>Data Extraction<br />Pipelines</h3>
                     <p>
-                        Design and deploy intelligent pipelines that pull, clean, and structure
-                        data from documents, APIs, and legacy systems, ready for analysis or automation.
+                        Intelligent pipelines that pull, clean, and structure data from documents,
+                        APIs, and legacy systems, ready for AI or automation.
                     </p>
                 </div>
 
-                <div class="service-card reveal" style="transition-delay: 1s">
+                <div class="service-card reveal" id="card-06" style="transition-delay: 1s">
                     <div class="service-card-num">06</div>
-                    <h3>Real-Time<br />Systems Engineering</h3>
+                    <h3><span id="edit-title">Real-Time</span><br />Systems Engineering</h3>
                     <p>
-                        Architect high-concurrency platforms built to process thousands of events
+                        Architect <span id="edit-desc1">high-concurrency platforms</span> built to process thousands of events
                         per second, from live data feeds to mission-critical integrations.
                     </p>
                 </div>
@@ -835,39 +937,17 @@
         <h2>Guided by experience.</h2>
         <p>Combining deep operational knowledge with technical architecture.</p>
 
-        <div class="team-grid">
-            <div class="team-member">
-                <h3>Kristi Buda</h3>
-                <span class="label">Founder</span>
-                <p style="
-              margin-top: 1rem;
-              font-size: 1.1rem;
-              line-height: 1.6;
-              color: var(--text-dark);
-              opacity: 0.85;
-            ">
-                    Brings over a decade of experience building complex software systems
-                    to help companies streamline and scale their operations through
-                    intelligent AI-powered automations.
-                </p>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem">
-                    <a href="https://buda.dev" target="_blank" style="
-                  color: var(--accent);
-                  font-family: var(--font-mono);
-                  font-size: 0.85rem;
-                  letter-spacing: 0.05em;
-                  text-transform: uppercase;
-                  text-decoration: none;
-                ">Profile →</a>
-                    <a href="https://www.linkedin.com/in/budakristi/" target="_blank" style="
-                  color: var(--accent);
-                  font-family: var(--font-mono);
-                  font-size: 0.85rem;
-                  letter-spacing: 0.05em;
-                  text-transform: uppercase;
-                  text-decoration: none;
-                ">LinkedIn →</a>
-                </div>
+        <div class="team-member">
+            <h3>Kristi Buda</h3>
+            <span class="label">Founder</span>
+            <p>
+                Brings over a decade of experience building complex software systems
+                to help companies streamline and scale their operations through
+                intelligent AI-powered automations.
+            </p>
+            <div class="team-member-links">
+                <a href="https://buda.dev" target="_blank">Profile →</a>
+                <a href="https://www.linkedin.com/in/budakristi/" target="_blank">LinkedIn →</a>
             </div>
         </div>
     </section>
@@ -880,59 +960,17 @@
                 Tell us what's slowing you down. We'll show you exactly how to fix it.
             </p>
 
-            <form id="contact-form" style="
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            text-align: left;
-            margin-top: 2rem;
-          ">
+            <form id="contact-form" class="contact-form">
                 <input type="hidden" name="access_key" value="8cefe3b2-6bbb-41fb-a3b4-b4e495a3fadd">
                 <input type="hidden" name="subject" value="New Consultation Request from marvio.co.uk">
-                <!-- Honeypot field — hidden from humans, catches bots -->
                 <input type="checkbox" name="botcheck" style="display: none;">
                 <div class="form-grid">
-                    <input type="text" name="name" placeholder="Name" required style="
-                padding: 1rem;
-                border-radius: 2px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                background: rgba(255, 255, 255, 0.05);
-                color: var(--bg-primary);
-                font-family: var(--font-sans);
-                outline: none;
-              " />
-                    <input type="email" name="email" placeholder="Email" required style="
-                padding: 1rem;
-                border-radius: 2px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                background: rgba(255, 255, 255, 0.05);
-                color: var(--bg-primary);
-                font-family: var(--font-sans);
-                outline: none;
-              " />
+                    <input type="text" name="name" placeholder="Name" required />
+                    <input type="email" name="email" placeholder="Email" required />
                 </div>
-                <textarea name="message" placeholder="Tell us about your operational bottlenecks..." rows="5"
-                    required style="
-              padding: 1rem;
-              border-radius: 2px;
-              border: 1px solid rgba(255, 255, 255, 0.2);
-              background: rgba(255, 255, 255, 0.05);
-              color: var(--bg-primary);
-              font-family: var(--font-sans);
-              outline: none;
-              resize: none;
-            "></textarea>
-                <div id="form-status" style="
-              font-family: var(--font-mono);
-              font-size: 0.875rem;
-              letter-spacing: 0.05em;
-              display: none;
-            "></div>
-                <button type="submit" class="btn" data-hover="true" style="
-              border: none;
-              margin-top: 0.5rem;
-              align-self: flex-start;
-            ">
+                <textarea name="message" placeholder="Tell us about your operational bottlenecks..." rows="5" required></textarea>
+                <div id="form-status" class="form-status"></div>
+                <button type="submit" class="btn">
                     <span>Submit Request</span>
                 </button>
             </form>
@@ -981,13 +1019,13 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="assets/logo-white.png" alt="Marvio Logo" style="width: 32px; height: 32px; display: block" />
+                <img src="assets/logo-white.png" alt="Marvio Logo" />
                 <span>marvio.</span>
             </div>
             <div>&copy; Copyright Marvio All Rights Reserved</div>
             <div class="footer-links">
-                <a href="mailto:contact@marvio.co.uk" style="color: inherit; text-decoration: none"
-                    data-hover="true">contact@marvio.co.uk</a>
+                <a href="mailto:contact@marvio.co.uk"
+                   >contact@marvio.co.uk</a>
             </div>
         </div>
     </footer>
@@ -1103,6 +1141,201 @@
         scrollTopBtn.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
+
+        // Card 06 collaborative editing animation
+        (function () {
+            const card = document.getElementById("card-06");
+            if (!card) return;
+
+            const cursorSvg = (color) =>
+                `<svg viewBox="0 0 24 24" fill="${color}" xmlns="http://www.w3.org/2000/svg"><path d="M5 3l14 8-6.5 1.5L11 19z"/></svg>`;
+
+            const edits = [
+                {
+                    el: document.getElementById("edit-title"),
+                    words: ["Real-Time", "Scalable", "Event-Driven", "Low-Latency"],
+                    color: "#ff6b6b",
+                    name: "Sam",
+                },
+                {
+                    el: document.getElementById("edit-desc1"),
+                    words: ["high-concurrency platforms", "distributed systems", "streaming pipelines", "resilient architectures"],
+                    color: "#48d1cc",
+                    name: "Jordan",
+                },
+            ];
+
+            let running = false;
+            let loopActive = false;
+
+            function posOf(span) {
+                const cr = card.getBoundingClientRect();
+                const sr = span.getBoundingClientRect();
+                return { x: sr.right - cr.left, y: sr.bottom - cr.top };
+            }
+
+            function makeCursor(color, name) {
+                const el = document.createElement("div");
+                el.className = "collab-cursor";
+                el.innerHTML = `${cursorSvg(color)}<span class="collab-cursor-tag" style="background:${color}">${name}</span>`;
+                el.style.opacity = "0";
+                card.appendChild(el);
+                return el;
+            }
+
+            function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+            function moveTo(cursor, x, y, ms) {
+                return new Promise(r => {
+                    cursor.style.transition = `transform ${ms}ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 300ms ease`;
+                    cursor.style.transform = `translate(${x}px, ${y}px)`;
+                    setTimeout(r, ms);
+                });
+            }
+
+            async function editSpan(edit) {
+                if (!running) return;
+                const { el, words, color, name } = edit;
+                const oldText = el.textContent;
+                const pool = words.filter(w => w !== oldText);
+                const newText = pool[Math.floor(Math.random() * pool.length)];
+
+                const cursor = makeCursor(color, name);
+
+                // start off-card
+                const startX = -30;
+                const startY = posOf(el).y + 40;
+                cursor.style.transform = `translate(${startX}px, ${startY}px)`;
+
+                // fade in
+                await sleep(200);
+                cursor.style.opacity = "1";
+
+                // glide to end of text
+                let pos = posOf(el);
+                await moveTo(cursor, pos.x, pos.y, 1600);
+                if (!running) { cursor.remove(); return; }
+
+                // select highlight
+                el.classList.add("collab-select");
+                await sleep(1200);
+                if (!running) { cursor.remove(); el.classList.remove("collab-select"); return; }
+
+                // fade out cursor, start deleting
+                cursor.style.opacity = "0";
+                el.classList.add("collab-caret");
+                el.style.borderColor = color;
+                for (let i = oldText.length - 1; i >= 0; i--) {
+                    if (!running) break;
+                    el.textContent = oldText.slice(0, i);
+                    pos = posOf(el);
+                    cursor.style.transition = "transform 80ms linear";
+                    cursor.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+                    await sleep(100);
+                }
+                el.textContent = "";
+
+                // type new text
+                for (let i = 1; i <= newText.length; i++) {
+                    if (!running) break;
+                    el.textContent = newText.slice(0, i);
+                    pos = posOf(el);
+                    cursor.style.transition = "transform 80ms linear";
+                    cursor.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+                    await sleep(120);
+                }
+
+                el.classList.remove("collab-select", "collab-caret");
+                el.style.borderColor = "";
+                await sleep(500);
+                cursor.remove();
+            }
+
+            async function dragSelect() {
+                if (!running) return;
+                const cursor = makeCursor("#0d47a1", "Alex");
+                const cardW = card.offsetWidth;
+                const cardH = card.offsetHeight;
+
+                // random area in the right half of the card
+                const x1 = cardW * 0.5 + Math.random() * cardW * 0.2;
+                const y1 = cardH * 0.2 + Math.random() * cardH * 0.3;
+                const x2 = x1 + 60 + Math.random() * 80;
+                const y2 = y1 + 40 + Math.random() * 50;
+
+                // start off-card right
+                cursor.style.transform = `translate(${cardW + 30}px, ${y1 + 20}px)`;
+                await sleep(100);
+                cursor.style.opacity = "1";
+
+                // glide to drag start
+                await moveTo(cursor, x1, y1, 1200);
+                if (!running) { cursor.remove(); return; }
+                await sleep(300);
+
+                // create drag rect
+                const rect = document.createElement("div");
+                rect.className = "collab-drag-rect";
+                rect.style.borderColor = "#0d47a1";
+                rect.style.background = "rgba(13, 71, 161, 0.06)";
+                rect.style.opacity = "0.8";
+                card.appendChild(rect);
+
+                // animate the drag
+                const steps = 30;
+                for (let i = 0; i <= steps; i++) {
+                    if (!running) break;
+                    const t = i / steps;
+                    const ease = t * t * (3 - 2 * t);
+                    const cx = x1 + (x2 - x1) * ease;
+                    const cy = y1 + (y2 - y1) * ease;
+                    cursor.style.transition = "transform 40ms linear";
+                    cursor.style.transform = `translate(${cx}px, ${cy}px)`;
+                    rect.style.transform = `translate(${x1}px, ${y1}px)`;
+                    rect.style.width = (cx - x1) + "px";
+                    rect.style.height = (cy - y1) + "px";
+                    await sleep(50);
+                }
+
+                await sleep(800);
+
+                // fade out both
+                cursor.style.opacity = "0";
+                rect.style.opacity = "0";
+                await sleep(500);
+                cursor.remove();
+                rect.remove();
+            }
+
+            let hasPlayed = false;
+
+            async function playOnce() {
+                if (loopActive || hasPlayed) return;
+                loopActive = true;
+                hasPlayed = true;
+                await sleep(1500);
+                if (!running) { loopActive = false; return; }
+                const titleEdit = editSpan(edits[0]);
+                await sleep(1000);
+                const descEdit = editSpan(edits[1]);
+                await sleep(1500);
+                const alexDrag = dragSelect();
+                await Promise.all([titleEdit, descEdit, alexDrag]);
+                loopActive = false;
+            }
+
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !running) {
+                        running = true;
+                        playOnce();
+                    } else if (!entry.isIntersecting) {
+                        running = false;
+                    }
+                });
+            }, { threshold: 0.3 });
+            obs.observe(card);
+        })();
     </script>
 </body>
 
