@@ -537,7 +537,7 @@
             document.body.classList.remove('js-loading');
             var loader = document.getElementById('loader');
             if (loader) loader.style.display = 'none';
-        }, 4000);
+        }, 1500);
     </script>
 
     <!-- Page Loader -->
@@ -893,18 +893,19 @@
             var barFill = document.getElementById('loader-bar-fill');
             var count = 0;
 
+            var loaderDuration = 600;
+            var loaderStart = Date.now();
             var loaderInterval = setInterval(function () {
-                count += Math.floor(Math.random() * 8) + 2;
+                var elapsed = Date.now() - loaderStart;
+                count = Math.min(100, Math.round((elapsed / loaderDuration) * 100));
+                counter.textContent = count;
+                barFill.style.width = count + '%';
                 if (count >= 100) {
-                    count = 100;
                     clearInterval(loaderInterval);
-                    counter.textContent = '100';
-                    barFill.style.width = '100%';
-
                     setTimeout(function () {
                         gsap.to(loader, {
                             yPercent: -100,
-                            duration: 0.8,
+                            duration: 0.4,
                             ease: 'power4.inOut',
                             onComplete: function () {
                                 loader.style.display = 'none';
@@ -912,11 +913,9 @@
                                 animateHero();
                             }
                         });
-                    }, 300);
+                    }, 100);
                 }
-                counter.textContent = count;
-                barFill.style.width = count + '%';
-            }, 40);
+            }, 30);
 
             // ===================== MAGNETIC BUTTONS =====================
             if (window.innerWidth >= 768) {
