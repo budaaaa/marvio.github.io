@@ -266,6 +266,7 @@
             z-index: 5; opacity: 1;
             border-radius: 200px 0 0 200px;
             pointer-events: none;
+            will-change: transform;
         }
 
         .work-team-wrap {
@@ -285,6 +286,7 @@
             z-index: 5; opacity: 1;
             border-radius: 200px 0 0 200px;
             pointer-events: none;
+            will-change: transform;
         }
 
         .float-shape {
@@ -495,8 +497,26 @@
             .container { padding: 0 1rem; }
             .line-nav { display: none; }
             .logo { top: 1rem; left: 1rem; }
-            .hero-bg-image { display: none; }
-            .founder-bg-image { display: none; }
+            .hero-bg-image, .founder-bg-image {
+                display: block;
+                position: absolute;
+                width: calc(100% - 2rem);
+                height: 250px;
+                margin: 0;
+                border-radius: 20px;
+                top: -125px; left: 1rem;
+                z-index: 10;
+            }
+            .mobile-bridge {
+                position: relative;
+                width: 100%;
+                height: 0;
+                z-index: 10;
+            }
+            #hero { padding-bottom: 150px; }
+            #why-us { padding-top: 150px; }
+            #selected-work { padding-bottom: 150px; }
+            #team { padding-top: 150px; }
             .work-team-wrap > section > .container { padding-right: 1rem; }
             .hero-title { font-size: clamp(2.5rem, 12vw, 4rem); }
             .stroke-text { -webkit-text-stroke-width: 1.5px; }
@@ -562,8 +582,6 @@
 
     <!-- ==================== HERO (DARK) ==================== -->
     <div class="hero-why-wrap">
-        <img src="assets/port.jpg" class="hero-bg-image" alt="Business Operations" />
-
         <section id="hero" class="dark-section">
             <div class="hero-bg-art" aria-hidden="true">
                 <div class="float-shape shape-1"></div>
@@ -593,6 +611,10 @@
                 </div>
                 </div>
         </section>
+
+        <div class="mobile-bridge">
+            <img src="assets/port.jpg" class="hero-bg-image" alt="Business Operations" />
+        </div>
 
         <!-- ==================== WHY US ==================== -->
         <section id="why-us">
@@ -727,8 +749,6 @@
     </section>
 
     <div class="work-team-wrap">
-        <img src="assets/kristi.jpg" class="founder-bg-image" alt="Kristi Buda" />
-
     <!-- ==================== SELECTED WORK ==================== -->
     <section id="selected-work">
         <div class="container">
@@ -780,6 +800,10 @@
             </div>
         </div>
     </section>
+
+    <div class="mobile-bridge">
+        <img src="assets/people-working.jpg" class="founder-bg-image" alt="People Working" />
+    </div>
 
     <!-- ==================== TEAM ==================== -->
     <section id="team">
@@ -990,6 +1014,29 @@
                     scrollTrigger: { trigger: '.work-team-wrap', start: 'top 60%' }
                 });
             }
+
+            // ===================== PARALLAX IMAGES =====================
+            gsap.to('.hero-bg-image', {
+                yPercent: -40,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.hero-why-wrap',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            });
+
+            gsap.to('.founder-bg-image', {
+                yPercent: -40,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.work-team-wrap',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            });
 
             // ===================== NAV + LOGO COLOR SWAP ON DARK SECTIONS =====================
             var lineNav = document.querySelector('.line-nav');
