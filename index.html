@@ -114,29 +114,6 @@
 
         .highlight { color: var(--accent); }
 
-        /* Page Loader */
-        .loader {
-            position: fixed; inset: 0; z-index: 10000;
-            background: var(--text-dark);
-            display: flex; align-items: center; justify-content: center;
-        }
-        .loader-inner { text-align: center; color: var(--bg-primary); }
-        .loader-counter {
-            font-family: var(--font-mono);
-            font-size: clamp(4rem, 10vw, 8rem);
-            font-weight: 700; line-height: 1; margin-bottom: 2rem;
-        }
-        .loader-bar {
-            width: 200px; height: 2px;
-            background: rgba(248, 248, 255, 0.15);
-            margin: 0 auto 1.5rem; border-radius: 2px; overflow: hidden;
-        }
-        .loader-bar-fill { height: 100%; width: 0%; background: var(--indicator); transition: width 0.1s ease; }
-        .loader-text {
-            font-family: var(--font-mono); font-size: 0.75rem;
-            text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.5;
-        }
-
         /* Scroll Progress */
         .scroll-progress {
             position: fixed; top: 0; left: 0; width: 100%; height: 3px;
@@ -207,8 +184,7 @@
             border: 2px solid var(--text-dark); cursor: pointer;
             -webkit-appearance: none; appearance: none;
             transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                        color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.2s ease;
+                        color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .btn::before {
             content: ""; position: absolute; inset: 0; background: var(--indicator);
@@ -315,9 +291,12 @@
             font-size: clamp(4rem, 10vw, 9rem); line-height: 0.92;
             font-weight: 700; margin-bottom: 2.5rem; letter-spacing: -0.04em;
         }
+        .page-cover {
+            position: fixed; inset: 0; z-index: 10000;
+            background: var(--text-dark);
+        }
         .hero-title .line { display: block; overflow: hidden; }
         .hero-title .line-inner { display: block; }
-
         .js-loading .hero-title .line-inner { transform: translateY(105%); }
         .js-loading .hero-content .hero-label,
         .js-loading .hero-content .hero-sub,
@@ -326,6 +305,7 @@
         .js-loading .line-nav,
         .js-loading .float-shape,
         .js-loading .hero-bg-image { opacity: 0; visibility: hidden; }
+
 
         .stroke-text {
             color: transparent;
@@ -340,7 +320,7 @@
             margin-bottom: 3rem; font-size: clamp(1.125rem, 1.5vw, 1.5rem);
             max-width: 50ch; color: var(--bg-primary); opacity: 0.75;
         }
-        .hero-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .hero-links { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
 
         /* Reveal Animations */
         .reveal-fade, .reveal-slide, .reveal-card {
@@ -533,23 +513,9 @@
     <script>
         window.scrollTo(0, 0);
         if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-        setTimeout(function() {
-            document.body.classList.remove('js-loading');
-            var loader = document.getElementById('loader');
-            if (loader) loader.style.display = 'none';
-        }, 1500);
     </script>
 
-    <!-- Page Loader -->
-    <div class="loader" id="loader">
-        <div class="loader-inner">
-            <div class="loader-counter" id="loader-counter">0</div>
-            <div class="loader-bar">
-                <div class="loader-bar-fill" id="loader-bar-fill"></div>
-            </div>
-            <div class="loader-text">Loading experience</div>
-        </div>
-    </div>
+    <div class="page-cover" id="page-cover"></div>
 
     <!-- Scroll Progress -->
     <div class="scroll-progress" id="scroll-progress"></div>
@@ -853,7 +819,7 @@
                     <textarea name="message" placeholder="Tell us about your operational bottlenecks..." rows="5" required></textarea>
                     <div id="form-status" class="form-status"></div>
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-light"><span>Submit Request</span></button>
+                        <button type="submit" class="btn btn-light magnetic"><span>Submit Request</span></button>
                     </div>
                 </form>
             </div>
@@ -887,35 +853,18 @@
 
             gsap.registerPlugin(ScrollTrigger);
 
-            // ===================== PAGE LOADER =====================
-            var loader = document.getElementById('loader');
-            var counter = document.getElementById('loader-counter');
-            var barFill = document.getElementById('loader-bar-fill');
-            var count = 0;
-
-            var loaderDuration = 600;
-            var loaderStart = Date.now();
-            var loaderInterval = setInterval(function () {
-                var elapsed = Date.now() - loaderStart;
-                count = Math.min(100, Math.round((elapsed / loaderDuration) * 100));
-                counter.textContent = count;
-                barFill.style.width = count + '%';
-                if (count >= 100) {
-                    clearInterval(loaderInterval);
-                    setTimeout(function () {
-                        gsap.to(loader, {
-                            yPercent: -100,
-                            duration: 0.4,
-                            ease: 'power4.inOut',
-                            onComplete: function () {
-                                loader.style.display = 'none';
-                                document.body.classList.remove('js-loading');
-                                animateHero();
-                            }
-                        });
-                    }, 100);
+            // Seamless cover → hero transition
+            var cover = document.getElementById('page-cover');
+            gsap.to(cover, {
+                yPercent: -100,
+                duration: 0.4,
+                ease: 'power4.inOut',
+                onComplete: function () {
+                    cover.style.display = 'none';
+                    document.body.classList.remove('js-loading');
+                    animateHero();
                 }
-            }, 30);
+            });
 
             // ===================== MAGNETIC BUTTONS =====================
             if (window.innerWidth >= 768) {
@@ -976,18 +925,18 @@
             function animateHero() {
                 var tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-                tl.from('.hero-label', { y: 30, opacity: 0, duration: 1, clearProps: 'all' })
-                  .from('.line-inner', { yPercent: 105, duration: 1.2, stagger: 0.15, clearProps: 'transform' }, '-=0.6')
+                tl.from('.hero-label', { y: 30, opacity: 0, duration: 1 })
+                  .from('.line-inner', { yPercent: 105, duration: 1.2, stagger: 0.15 }, '-=0.6')
                   .call(function () {
                       document.querySelectorAll('.stroke-text').forEach(function (el, i) {
                           setTimeout(function () { el.classList.add('filled'); }, i * 200);
                       });
                   }, null, '-=0.8')
-                  .from('.hero-sub', { y: 30, opacity: 0, duration: 1, clearProps: 'all' }, '-=0.5')
-                  .from('.hero-links .btn', { y: 20, opacity: 0, duration: 0.8, stagger: 0.1, clearProps: 'all' }, '-=0.7')
-                  .from('.logo', { opacity: 0, x: -20, duration: 0.8, clearProps: 'all' }, '-=0.8')
-                  .from('.nav-item', { opacity: 0, x: -10, duration: 0.6, stagger: 0.08, clearProps: 'all' }, '-=0.6')
-                  .from('.float-shape', { scale: 0, opacity: 0, duration: 1.5, stagger: 0.2, ease: 'elastic.out(1, 0.5)', clearProps: 'all' }, '-=1.5')
+                  .from('.hero-sub', { y: 30, opacity: 0, duration: 1 }, '-=0.5')
+                  .from('.hero-links .btn', { y: 20, opacity: 0, duration: 0.8, stagger: 0.1 }, '-=0.7')
+                  .from('.logo', { opacity: 0, x: -20, duration: 0.8 }, '-=0.8')
+                  .from('.nav-item', { opacity: 0, x: -10, duration: 0.6, stagger: 0.08 }, '-=0.6')
+                  .from('.float-shape', { scale: 0, opacity: 0, duration: 1.5, stagger: 0.2, ease: 'elastic.out(1, 0.5)' }, '-=1.5')
                   .fromTo('.hero-bg-image', { x: 100, opacity: 0 }, { x: 0, opacity: 0.85, duration: 1.5, ease: 'power3.out' }, '-=1.5');
             }
 
