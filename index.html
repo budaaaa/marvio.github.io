@@ -460,6 +460,88 @@
             font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1rem;
         }
 
+        /* Testimonials */
+        #testimonials {
+            background: var(--text-dark);
+            padding: var(--space-xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-glow {
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(72, 209, 204, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        #testimonials > .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-md) auto;
+        }
+
+        .testimonials-header .label { color: var(--indicator); }
+        .testimonials-header h2 { color: var(--bg-primary); }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            position: relative;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(248, 248, 255, 0.1);
+            background: rgba(248, 248, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .testimonial-text {
+            position: relative;
+            z-index: 2;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: rgba(248, 248, 255, 0.9);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-top: 1px solid rgba(248, 248, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+
+        .testimonial-author h4 {
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+            color: var(--indicator);
+            letter-spacing: 0.05em;
+        }
+
+        .testimonial-author span {
+            font-size: 0.8rem;
+            color: rgba(248, 248, 255, 0.6);
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .hero-content { padding-left: 0; }
@@ -798,6 +880,43 @@
     </section>
     </div>
 
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section id="testimonials" class="dark-section">
+        <div class="testimonials-glow" aria-hidden="true"></div>
+        <div class="container">
+            <div class="testimonials-header">
+                <span class="label reveal-fade">Track Record</span>
+                <h2 class="reveal-fade">Trusted by engineering leaders.</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal-slide">
+                    <p class="testimonial-text">
+                        Marvio is the most effective engineering partner I've ever worked with... Their deep knowledge of design, paired with technical prowess in frontend technologies, and ability to deliver on complex backend infrastructure, really shows what kind of multi-talented team they are. Not least, their energy and resilience have allowed many people to rely on them with mission-critical deliverables.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Fabio Tamagno</h4>
+                            <span>monday.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal-slide" style="transition-delay: 0.2s">
+                    <p class="testimonial-text">
+                        Working with Marvio, I've seen firsthand that they are highly knowledgeable and skilled in real-time collaboration features, and have the discipline to implement clean and professional software.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Joseph Young</h4>
+                            <span>Artificial Labs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== CTA (DARK) ==================== -->
     <section id="cta" class="dark-section">
         <div class="container">
@@ -948,7 +1067,7 @@
                         revealObs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.08 });
+            }, { rootMargin: "0px 0px -15% 0px", threshold: 0 });
 
             document.querySelectorAll('.reveal-fade, .reveal-slide, .reveal-card').forEach(function (el) {
                 revealObs.observe(el);
