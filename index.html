@@ -2,1378 +2,373 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marvio | Applied AI Engineering & Custom Enterprise Infrastructure</title>
-    <meta name="description"
-        content="Marvio is an applied AI engineering firm that designs, builds, and scales custom AI infrastructure for complex enterprise operations." />
-    <meta property="og:title" content="Marvio | Applied AI Engineering" />
-    <meta property="og:description" content="Marvio is an applied AI engineering firm that designs, builds, and scales custom AI infrastructure for complex enterprise operations." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://marvio.co.uk/" />
-    <link rel="canonical" href="https://marvio.co.uk/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marvio | Applied AI Engineering &amp; Custom Enterprise Infrastructure</title>
+  <meta name="description" content="Marvio is an applied AI engineering firm that designs, builds, and scales custom AI infrastructure for complex enterprise operations." />
+  <meta property="og:title"       content="Marvio | Applied AI Engineering" />
+  <meta property="og:description" content="Marvio is an applied AI engineering firm that designs, builds, and scales custom AI infrastructure for complex enterprise operations." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://marvio.co.uk/" />
+  <link rel="canonical" href="https://marvio.co.uk/" />
 
-    <!-- SVG Favicon (light for dark theme) -->
-    <link rel="icon" type="image/svg+xml" href="assets/icons/icon-light-32x32.svg" media="(prefers-color-scheme: dark)">
-    <!-- SVG Favicon (dark for light theme) -->
-    <link rel="icon" type="image/svg+xml" href="assets/icons/icon-32x32.svg" media="(prefers-color-scheme: light)">
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/icon-light-32x32.svg" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/icon-32x32.svg"       media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="32x32"   href="assets/icons/icon-light-32x32.png"   media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="32x32"   href="assets/icons/icon-32x32.png"          media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="180x180" href="assets/icons/icon-light-180x180.png">
+  <link rel="apple-touch-icon"     sizes="180x180" href="assets/icons/icon-light-180x180.png">
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon-light.ico" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico"       media="(prefers-color-scheme: light)">
 
-    <!-- PNG Favicons for dark theme (light icons) -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon-light-16x16.png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-light-32x32.png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/icon-light-48x48.png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/icon-light-64x64.png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/icon-light-96x96.png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/png" sizes="128x128" href="assets/icons/icon-light-128x128.png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/png" sizes="256x256" href="assets/icons/icon-light-256x256.png" media="(prefers-color-scheme: dark)">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 
-    <!-- PNG Favicons for light theme (dark icons) -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon-16x16.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32x32.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/icon-48x48.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/icon-64x64.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/icon-96x96.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" sizes="128x128" href="assets/icons/icon-128x128.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" sizes="256x256" href="assets/icons/icon-256x256.png" media="(prefers-color-scheme: light)">
-
-    <!-- ICO fallback -->
-    <link rel="icon" type="image/x-icon" href="assets/icons/favicon-light.ico" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" media="(prefers-color-scheme: light)">
-
-    <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/icon-light-180x180.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-
-    <style>
-        :root {
-            --bg-primary: #f8f8ff;
-            --bg-secondary: #f5deb3;
-            --bg-tertiary: #87ceeb;
-            --text-dark: #0d47a1;
-            --text-muted: #a0522d;
-            --accent: #ff6b6b;
-            --accent-glow: rgba(255, 107, 107, 0.15);
-            --indicator: #48d1cc;
-            --divider: rgba(13, 71, 161, 0.08);
-            --font-sans: "Inter", sans-serif;
-            --font-mono: "Space Mono", monospace;
-            --space-xs: 0.75rem;
-            --space-sm: 1.5rem;
-            --space-md: 3rem;
-            --space-lg: 5rem;
-            --space-xl: 8rem;
-            --transition-snap: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { font-size: 16px; }
-
-        body {
-            font-family: var(--font-sans);
-            background: var(--bg-primary);
-            color: var(--text-dark);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
-        }
-
-        ::selection { background: var(--accent); color: var(--bg-primary); }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-mono);
-            color: var(--text-dark);
-            letter-spacing: -0.03em;
-        }
-
-        h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; font-weight: 700; }
-        h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.3; font-weight: 700; }
-
-        p {
-            font-size: clamp(1rem, 1.2vw, 1.25rem);
-            line-height: 1.7;
-            color: var(--text-dark);
-            opacity: 0.85;
-            max-width: 56ch;
-        }
-
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { color: var(--indicator); }
-        img { max-width: 100%; display: block; }
-
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-        section { position: relative; }
-
-        .label {
-            font-family: var(--font-mono);
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        .highlight { color: var(--accent); }
-
-        /* Scroll Progress */
-        .scroll-progress {
-            position: fixed; top: 0; left: 0; width: 100%; height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--indicator));
-            z-index: 9997; transform-origin: left; transform: scaleX(0);
-        }
-
-        /* Logo */
-        .logo {
-            position: fixed; top: 2rem; left: 2rem;
-            display: flex; align-items: center; gap: 0.75rem;
-            text-decoration: none; z-index: 100;
-        }
-        .logo img { width: 32px; height: 32px; display: block; transition: opacity 0.4s ease; }
-        .logo span {
-            font-family: var(--font-sans); font-size: 1.5rem; font-weight: 700;
-            color: var(--bg-primary); letter-spacing: -0.05em; transition: color 0.4s ease;
-        }
-        .logo:not(.dark-bg) span { color: var(--text-dark); }
-        .logo.dark-bg span { color: var(--bg-primary); }
-
-        /* Floating Line Nav */
-        .line-nav {
-            position: fixed; top: 50%; left: 2rem; transform: translateY(-50%);
-            display: flex; flex-direction: column; gap: 2px; z-index: 100;
-            --nav-color: var(--bg-primary); --nav-hover: var(--accent);
-            transition: gap 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .line-nav:hover { gap: 1.5rem; }
-        .line-nav:not(.dark-bg) { --nav-color: var(--text-dark); --nav-hover: var(--accent); }
-        .line-nav.dark-bg { --nav-color: var(--bg-primary); --nav-hover: var(--bg-primary); }
-
-        .nav-item {
-            display: flex; align-items: center; text-decoration: none;
-            position: relative; height: 24px; width: 32px;
-            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            color: var(--nav-color);
-        }
-        .line-nav:hover .nav-item { width: 160px; }
-
-        .nav-line {
-            display: block; width: 24px; height: 2px;
-            background-color: var(--nav-color); opacity: 0.4;
-            transition: var(--transition-snap); transform-origin: left center;
-        }
-        .nav-item:hover .nav-line, .nav-item.is-active .nav-line {
-            opacity: 1; background-color: var(--nav-hover); width: 32px;
-        }
-
-        .nav-text {
-            font-family: var(--font-mono); font-size: 0.8rem; color: var(--nav-color);
-            text-transform: uppercase; font-weight: 700; position: absolute; left: 0;
-            opacity: 0; transform: translateX(10px); transition: var(--transition-snap);
-            pointer-events: none; white-space: nowrap; letter-spacing: 0.05em;
-        }
-        .line-nav:hover .nav-line { opacity: 0; transform: scaleX(0); }
-        .line-nav:hover .nav-text { opacity: 1; transform: translateX(0); pointer-events: auto; }
-        .line-nav:hover .nav-item:hover .nav-text { color: var(--nav-hover); transform: translateX(5px); }
-        .line-nav:hover .nav-item.is-active .nav-text { color: var(--nav-hover); }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            padding: 1rem 2.5rem; background: var(--text-dark); color: var(--bg-primary);
-            font-family: var(--font-mono); font-weight: 700; font-size: 0.875rem;
-            text-transform: uppercase; text-decoration: none; border-radius: 2px;
-            letter-spacing: 0.05em; position: relative; overflow: hidden;
-            border: 2px solid var(--text-dark); cursor: pointer;
-            -webkit-appearance: none; appearance: none;
-            transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                        color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .btn::before {
-            content: ""; position: absolute; inset: 0; background: var(--indicator);
-            transform: translateY(102%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1;
-        }
-        .btn:hover { color: var(--bg-primary); border-color: var(--indicator); }
-        .btn:hover::before { transform: translateY(0); }
-        .btn span { position: relative; z-index: 2; color: inherit; }
-        .btn:active { transform: scale(0.97); }
-
-        .btn-outline { background: transparent; color: var(--text-dark); }
-        .btn-outline span { color: var(--text-dark); }
-        .btn-outline:hover span { color: var(--bg-primary); }
-
-        .btn-hero { background: var(--indicator); color: var(--text-dark); border-color: var(--indicator); }
-        .btn-hero span { color: var(--text-dark); }
-        .btn-hero::before { background: var(--bg-primary); }
-        .btn-hero:hover { border-color: var(--bg-primary); }
-        .btn-hero:hover span { color: var(--text-dark); }
-
-        .btn-hero.btn-outline {
-            background: transparent; border-color: rgba(248, 248, 255, 0.3); color: var(--bg-primary);
-        }
-        .btn-hero.btn-outline span { color: var(--bg-primary); }
-        .btn-hero.btn-outline::before { background: var(--indicator); }
-        .btn-hero.btn-outline:hover { border-color: var(--indicator); }
-        .btn-hero.btn-outline:hover span { color: var(--text-dark); }
-
-        .btn-light { background: var(--indicator); color: var(--text-dark); border-color: var(--indicator); }
-        .btn-light span { color: var(--text-dark); }
-        .btn-light::before { background: var(--bg-primary); }
-
-        /* Hero (DARK) */
-        #hero {
-            min-height: 100vh; display: flex; align-items: center;
-            position: relative; overflow: hidden; background: var(--text-dark);
-            padding: var(--space-lg) 0;
-        }
-        #hero::before {
-            content: ''; position: absolute; top: 50%; left: 50%;
-            width: 900px; height: 900px; transform: translate(-50%, -50%);
-            background: radial-gradient(circle, rgba(72, 209, 204, 0.08) 0%, transparent 65%);
-            pointer-events: none; z-index: 1;
-        }
-
-        .hero-bg-art { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
-
-        .hero-why-wrap {
-            position: relative;
-        }
-        .hero-bg-image {
-            position: absolute; top: 30%; right: 0;
-            width: 30%; height: 80%;
-            object-fit: cover;
-            z-index: 5; opacity: 1;
-            border-radius: 200px 0 0 200px;
-            pointer-events: none;
-            will-change: transform;
-        }
-
-        .work-team-wrap {
-            position: relative;
-        }
-        .work-team-wrap > section > .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            padding-right: 35%;
-        }
-        .founder-bg-image {
-            position: absolute; bottom: 5%; right: 0;
-            width: 32%; height: 50%;
-            object-fit: cover;
-            object-position: center 20%;
-            z-index: 5; opacity: 1;
-            border-radius: 200px 0 0 200px;
-            pointer-events: none;
-            will-change: transform;
-        }
-
-        .float-shape {
-            position: absolute; border-radius: 50%; will-change: transform;
-            transform: translateZ(0); transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .shape-1 { width: 500px; height: 500px; right: -5%; top: 10%; background: radial-gradient(circle, rgba(72, 209, 204, 0.12) 0%, transparent 70%); }
-        .shape-2 { width: 350px; height: 350px; right: 15%; bottom: 10%; background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%); }
-        .shape-3 { width: 200px; height: 200px; right: 30%; top: 20%; background: radial-gradient(circle, rgba(248, 248, 255, 0.06) 0%, transparent 70%); }
-        .shape-4 { width: 120px; height: 120px; right: 10%; top: 30%; background: radial-gradient(circle, rgba(72, 209, 204, 0.1) 0%, transparent 70%); }
-        .shape-5 { width: 80px; height: 80px; right: 25%; bottom: 30%; background: radial-gradient(circle, rgba(255, 107, 107, 0.08) 0%, transparent 70%); }
-
-        .float-grid {
-            position: absolute; inset: 0;
-            background-image: linear-gradient(rgba(248, 248, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(248, 248, 255, 0.04) 1px, transparent 1px);
-            background-size: 80px 80px; opacity: 0.6;
-            mask-image: radial-gradient(ellipse 60% 60% at 80% 50%, black, transparent);
-            -webkit-mask-image: radial-gradient(ellipse 60% 60% at 80% 50%, black, transparent);
-        }
-
-        .hero-container { position: relative; z-index: 10; width: 100%; }
-        .hero-content { max-width: 960px; }
-        .hero-content .label { margin-bottom: 1.5rem; color: var(--indicator); }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 13vw, 9rem); line-height: 0.92;
-            font-weight: 700; margin-bottom: 2.5rem; letter-spacing: -0.04em;
-        }
-        .page-cover {
-            position: fixed; inset: 0; z-index: 10000;
-            background: var(--text-dark);
-        }
-        .hero-title .line { display: block; overflow: hidden; padding-bottom: 0.3em; margin-bottom: -0.3em; }
-        .hero-title .line-inner { display: block; }
-        .js-loading .hero-title .line-inner { transform: translateY(105%); }
-        .js-loading .hero-content .hero-label,
-        .js-loading .hero-content .hero-sub,
-        .js-loading .hero-content .hero-links .btn,
-        .js-loading .logo,
-        .js-loading .line-nav,
-        .js-loading .float-shape,
-        .js-loading .hero-bg-image { opacity: 0; visibility: hidden; }
-
-
-        .stroke-text {
-            color: transparent;
-            -webkit-text-stroke: 2px rgba(248, 248, 255, 0.7);
-            transition: color 1.5s ease, -webkit-text-stroke-color 1.5s ease;
-        }
-        .stroke-text.filled { color: var(--bg-primary); -webkit-text-stroke-color: transparent; }
-        .stroke-text.highlight { -webkit-text-stroke-color: var(--accent); }
-        .stroke-text.highlight.filled { color: var(--accent); -webkit-text-stroke-color: transparent; }
-
-        .hero-sub {
-            margin-bottom: 3rem; font-size: clamp(1.125rem, 1.5vw, 1.5rem);
-            max-width: 50ch; color: var(--bg-primary); opacity: 0.75;
-        }
-        .hero-links { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
-
-        /* Reveal Animations */
-        .reveal-fade, .reveal-slide, .reveal-card {
-            opacity: 0; transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal-fade.revealed, .reveal-slide.revealed, .reveal-card.revealed { opacity: 1; }
-
-        /* Section Headers */
-        .section-header { margin-bottom: var(--space-sm); max-width: 700px; }
-        .section-header h2 { margin-bottom: 0.75rem; }
-        .section-header p { margin-top: 0.25rem; }
-
-        /* Why Us */
-        #why-us {
-            padding: var(--space-xl) 0; background: var(--bg-secondary);
-            position: relative; overflow: hidden;
-        }
-        .about-content { position: relative; z-index: 1; max-width: 700px; }
-        .about-pillars { margin-top: var(--space-sm); display: flex; flex-direction: column; gap: 1rem; }
-        .pillar {
-        }
-        .pillar-num {
-            font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
-            color: var(--indicator); letter-spacing: 0.1em; margin-bottom: 0.25rem;
-        }
-        .pillar h4 { font-size: 1rem; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
-        .pillar p { max-width: 52ch; }
-
-        /* Services */
-        #services-wrapper { position: relative; background-color: var(--bg-primary); padding: var(--space-xl) 0; }
-        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
-        .service-card { padding: var(--space-md) 0; }
-        .service-card-num {
-            font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
-            color: var(--indicator); letter-spacing: 0.1em; margin-bottom: var(--space-sm);
-        }
-        .service-card h3 { margin-bottom: 1.5rem; }
-        .service-card p { max-width: 480px; }
-        #card-06 { position: relative; overflow: visible; }
-
-        .collab-cursor { position: absolute; top: 0; left: 0; pointer-events: none; z-index: 10; will-change: transform, opacity; transition: opacity 0.4s ease; }
-        .collab-cursor svg { width: 16px; height: 16px; display: block; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15)); }
-        .collab-cursor-tag { position: absolute; top: 16px; left: 10px; font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700; padding: 2px 6px; border-radius: 2px; white-space: nowrap; color: var(--bg-primary); }
-        .collab-select { background-color: var(--accent-glow); border-radius: 2px; }
-        .collab-caret { border-right: 2px solid; padding-right: 1px; }
-        .collab-drag-rect { position: absolute; top: 0; left: 0; border: 1.5px dashed; border-radius: 2px; pointer-events: none; z-index: 9; transition: opacity 0.4s ease; }
-
-        /* Team */
-        #team { padding: var(--space-xl) 0; background-color: var(--bg-primary); }
-        .team-member { max-width: 720px; margin-top: var(--space-sm); }
-        .team-member h3 { margin-bottom: 0.5rem; }
-        .team-member .label { color: var(--text-muted); margin-bottom: 0; }
-        .team-member p { margin-top: 1rem; }
-        .team-member-links { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
-        .team-member-links a {
-            color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem;
-            font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
-            text-decoration: none; display: inline-block; transition: var(--transition-snap);
-        }
-        .team-member-links a:hover { color: var(--indicator); transform: translateX(4px); }
-
-        /* CTA (DARK) */
-        #cta { background: var(--text-dark); color: var(--bg-primary); padding: var(--space-xl) 0 var(--space-md); }
-        .cta-top { text-align: center; padding-bottom: var(--space-md); }
-        .cta-top h2 { color: var(--bg-primary); }
-        .cta-top .label { color: var(--indicator); }
-        .cta-top p { color: var(--bg-primary); opacity: 0.7; margin: 0 auto 2.5rem; max-width: 48ch; }
-
-        .contact-form {
-            display: flex; flex-direction: column; gap: 1rem; text-align: left;
-            margin-top: var(--space-md); max-width: 600px; margin-left: auto; margin-right: auto;
-        }
-        .contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
-            padding: 1rem; border-radius: 2px; border: 1px solid rgba(248, 248, 255, 0.2);
-            background: rgba(248, 248, 255, 0.05); color: var(--bg-primary);
-            font-family: var(--font-sans); font-size: 0.95rem; outline: none; transition: var(--transition-snap);
-        }
-        .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--bg-primary); opacity: 0.4; }
-        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--indicator); background: rgba(248, 248, 255, 0.08); }
-        .contact-form textarea { resize: none; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .form-status { font-family: var(--font-mono); font-size: 0.875rem; letter-spacing: 0.05em; display: none; text-align: center; }
-        .form-actions { display: flex; gap: 2rem; align-items: center; margin-top: 0.5rem; }
-
-        /* Footer */
-        .footer-bottom {
-            display: flex; justify-content: space-between; align-items: center;
-            padding-top: var(--space-md); font-family: var(--font-mono); font-size: 0.8rem; opacity: 0.6;
-        }
-        .footer-logo { display: flex; align-items: center; gap: 0.5rem; }
-        .footer-logo img { width: 32px; height: 32px; display: block; }
-        .footer-logo span { font-family: var(--font-mono); font-weight: 700; font-size: 1.25rem; color: var(--bg-primary); }
-        .footer-links { display: flex; gap: 2rem; align-items: center; }
-        .footer-links span, .footer-links a { color: var(--bg-primary); }
-        .footer-links a:hover { color: var(--indicator); }
-
-        /* Scroll to Top */
-        .scroll-top {
-            position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px;
-            border-radius: 2px; background: var(--text-dark); border: 1px solid var(--bg-primary);
-            display: flex; align-items: center; justify-content: center; z-index: 100;
-            cursor: pointer; opacity: 0; pointer-events: none; transform: translateY(10px);
-            transition: var(--transition-snap);
-        }
-        .scroll-top svg { width: 16px; height: 16px; stroke: var(--bg-primary); stroke-width: 2.5; fill: none; }
-        .scroll-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-        .scroll-top:hover { background: var(--accent); }
-
-        /* Selected Work */
-        #selected-work {
-            padding: var(--space-xl) 0;
-            background: var(--bg-secondary);
-        }
-        .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: var(--space-md); }
-        .work-card { padding: var(--space-md) 0; display: flex; flex-direction: column; }
-        .work-card-industry {
-            font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase;
-            letter-spacing: 0.1em; color: var(--indicator); font-weight: 700; margin-bottom: 1rem;
-        }
-        .work-card h3 { margin-bottom: 1rem; }
-        .work-card p { opacity: 0.8; max-width: none; }
-        .work-card-stat { margin-top: auto; padding-top: 1.5rem; }
-        .work-card-stat-number { font-family: var(--font-mono); font-size: 1.75rem; font-weight: 700; color: var(--accent); line-height: 1; }
-        .work-card-stat-label { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dark); opacity: 0.5; margin-top: 0.35rem; }
-
-        /* How We Work */
-        #how-we-work { padding: var(--space-xl) 0; background: var(--bg-primary); }
-        .process-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-top: var(--space-md); }
-        .process-step-num {
-            font-family: var(--font-mono); font-size: 3rem; font-weight: 700;
-            color: var(--indicator); opacity: 0.3; line-height: 1; margin-bottom: 1rem;
-        }
-        .process-step h3 { margin-bottom: 0.75rem; }
-        .process-step p { opacity: 0.8; max-width: none; }
-        .process-step-time {
-            font-family: var(--font-mono); font-size: 0.75rem; color: var(--indicator);
-            font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1rem;
-        }
-
-        /* Testimonials */
-        #testimonials {
-            background: var(--text-dark);
-            padding: var(--space-xl) 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials-glow {
-            position: absolute;
-            top: -50%;
-            left: -10%;
-            width: 50vw;
-            height: 50vw;
-            background: radial-gradient(circle, rgba(72, 209, 204, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-            border-radius: 50%;
-        }
-
-        #testimonials > .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .testimonials-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto var(--space-md) auto;
-        }
-
-        .testimonials-header .label { color: var(--indicator); }
-        .testimonials-header h2 { color: var(--bg-primary); }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            position: relative;
-            padding: 2.5rem;
-            border-radius: 8px;
-            border: 1px solid rgba(248, 248, 255, 0.1);
-            background: rgba(248, 248, 255, 0.03);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .testimonial-text {
-            position: relative;
-            z-index: 2;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            color: rgba(248, 248, 255, 0.9);
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            border-top: 1px solid rgba(248, 248, 255, 0.1);
-            padding-top: 1.5rem;
-        }
-
-        .testimonial-author h4 {
-            margin-bottom: 0.2rem;
-            font-size: 1rem;
-            color: var(--indicator);
-            letter-spacing: 0.05em;
-        }
-
-        .testimonial-author span {
-            font-size: 0.8rem;
-            color: rgba(248, 248, 255, 0.6);
-            font-family: var(--font-mono);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero-content { padding-left: 0; }
-            .hero-title { font-size: clamp(3rem, 8vw, 6rem); }
-            .hero-bg-image { width: 40%; }
-            .founder-bg-image { width: 40%; }
-            .work-team-wrap > section > .container { padding-right: 42%; }
-            .work-grid { grid-template-columns: 1fr; }
-            .process-grid { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            :root { --space-xl: 4rem; --space-lg: 3rem; }
-            section, #services-wrapper { padding: var(--space-lg) 1rem; }
-            .container { padding: 0 1rem; }
-            .line-nav { display: none; }
-            .logo { top: 1rem; left: 1rem; }
-            .hero-bg-image, .founder-bg-image {
-                display: block;
-                position: absolute;
-                width: calc(100% - 2rem);
-                height: 250px;
-                margin: 0;
-                border-radius: 20px;
-                top: -125px; left: 1rem;
-                z-index: 10;
-            }
-            .mobile-bridge {
-                position: relative;
-                width: 100%;
-                height: 0;
-                z-index: 10;
-            }
-            #hero { padding-bottom: 150px; }
-            #why-us { padding-top: 150px; }
-            #selected-work { padding-bottom: 150px; }
-            #team { padding-top: 150px; }
-            .work-team-wrap > section > .container { padding-right: 1rem; }
-            .hero-title { font-size: clamp(2.5rem, 12vw, 4rem); }
-            .stroke-text { -webkit-text-stroke-width: 1.5px; }
-            .hero-content { padding-right: 0; }
-            .form-grid { grid-template-columns: 1fr; }
-            .form-actions { flex-direction: column; align-items: stretch; }
-            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-            .footer-links { flex-direction: column; gap: 0.5rem; }
-        }
-    </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
 </head>
 
 <body class="js-loading">
-    <script>
-        window.scrollTo(0, 0);
-        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    </script>
+  <!-- Prevent scroll restore jump -->
+  <script>
+    window.scrollTo(0, 0);
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  </script>
 
-    <div class="page-cover" id="page-cover"></div>
+  <div class="page-cover" id="page-cover"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
 
-    <!-- Scroll Progress -->
-    <div class="scroll-progress" id="scroll-progress"></div>
+  <!-- Fixed Logo -->
+  <a href="#hero" class="logo dark-bg" id="site-logo">
+    <img src="assets/logo-white.png" alt="Marvio Logo" id="logo-img" />
+    <span>marvio</span>
+  </a>
 
-    <!-- Fixed Logo -->
-    <a href="#hero" class="logo dark-bg" id="site-logo">
-        <img src="assets/logo-white.png" alt="Marvio Logo" id="logo-img" />
-        <span>marvio</span>
-    </a>
+  <!-- Floating Line Navigation -->
+  <nav class="line-nav" id="line-nav" aria-label="Page sections">
+    <a href="#why-us"           class="nav-item" data-cursor="link"><span class="nav-line"></span><span class="nav-text">About</span></a>
+    <a href="#services-wrapper" class="nav-item" data-cursor="link"><span class="nav-line"></span><span class="nav-text">Services</span></a>
+    <a href="#selected-work"    class="nav-item" data-cursor="link"><span class="nav-line"></span><span class="nav-text">Track Record</span></a>
+    <a href="#team"             class="nav-item" data-cursor="link"><span class="nav-line"></span><span class="nav-text">Leadership</span></a>
+    <a href="#testimonials"     class="nav-item" data-cursor="link"><span class="nav-line"></span><span class="nav-text">Testimonials</span></a>
+    <a href="#cta"              class="nav-item" data-cursor="link"><span class="nav-line"></span><span class="nav-text">Contact</span></a>
+  </nav>
 
-    <!-- Floating Line Navigation -->
-    <nav class="line-nav" id="line-nav">
-        <a href="#why-us" class="nav-item" data-cursor="link">
-            <span class="nav-line"></span>
-            <span class="nav-text">About</span>
-        </a>
-        <a href="#services-wrapper" class="nav-item" data-cursor="link">
-            <span class="nav-line"></span>
-            <span class="nav-text">Services</span>
-        </a>
-        <a href="#team" class="nav-item" data-cursor="link">
-            <span class="nav-line"></span>
-            <span class="nav-text">Team</span>
-        </a>
-        <a href="#cta" class="nav-item" data-cursor="link">
-            <span class="nav-line"></span>
-            <span class="nav-text">Get in Touch</span>
-        </a>
-    </nav>
-
-    <!-- ==================== HERO (DARK) ==================== -->
-    <div class="hero-why-wrap">
-        <section id="hero" class="dark-section">
-            <div class="hero-bg-art" aria-hidden="true">
-                <div class="float-shape shape-1"></div>
-                <div class="float-shape shape-2"></div>
-                <div class="float-shape shape-3"></div>
-                <div class="float-shape shape-4"></div>
-                <div class="float-shape shape-5"></div>
-                <div class="float-grid" aria-hidden="true"></div>
-            </div>
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <span class="label hero-label">Enterprise AI Infrastructure</span>
-                    <h1 class="hero-title">
-                        <span class="line"><span class="line-inner stroke-text" data-text="Applied">Applied</span></span>
-                        <span class="line"><span class="line-inner stroke-text" data-text="AI">AI</span></span>
-                        <span class="line"><span class="line-inner stroke-text highlight" data-text="Engineering.">Engineering.</span></span>
-                    </h1>
-                    <p class="hero-sub">
-                        Marvio is an applied AI engineering firm that designs, builds, and scales custom AI infrastructure for complex enterprise operations.
-                    </p>
-                    <div class="hero-links">
-                        <a href="#cta" class="btn btn-hero magnetic" data-cursor="link"><span>Get in Touch</span></a>
-                        <a href="#why-us" class="btn btn-hero btn-outline magnetic" data-cursor="link"><span>Learn More</span></a>
-                    </div>
-                </div>
-                </div>
-        </section>
-
-        <div class="mobile-bridge">
-            <img src="assets/port.jpg" class="hero-bg-image" alt="Enterprise Operations and Logistics" />
+  <!-- ==================== HERO + WHY US (share parallax image) ==================== -->
+  <div class="hero-why-wrap">
+    <section id="hero" class="dark-section">
+      <div class="hero-bg-art" aria-hidden="true">
+        <div class="float-shape shape-1"></div>
+        <div class="float-shape shape-2"></div>
+        <div class="float-shape shape-3"></div>
+        <div class="float-shape shape-4"></div>
+        <div class="float-shape shape-5"></div>
+        <div class="float-grid" aria-hidden="true"></div>
+      </div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="label hero-label">Enterprise AI Infrastructure</span>
+          <h1 class="hero-title">
+            <span class="line"><span class="line-inner stroke-text"          data-text="Applied">Applied</span></span>
+            <span class="line"><span class="line-inner stroke-text"          data-text="AI">AI</span></span>
+            <span class="line"><span class="line-inner stroke-text highlight" data-text="Engineering">Engineering</span></span>
+          </h1>
+          <p class="hero-sub">
+            Marvio is an applied AI engineering firm that designs, builds, and scales custom AI infrastructure for complex operations.
+          </p>
+          <div class="hero-links">
+            <a href="#cta"    class="btn btn-hero magnetic"              data-cursor="link"><span>Get in Touch</span></a>
+            <a href="#why-us" class="btn btn-hero btn-outline magnetic"  data-cursor="link"><span>Learn More</span></a>
+          </div>
         </div>
-
-        <!-- ==================== WHY US ==================== -->
-        <section id="why-us">
-            <div class="container">
-                <div class="about-content">
-                    <span class="label reveal-fade">About</span>
-                    <h2 class="reveal-fade">Engineering capability.</h2>
-                    <p class="reveal-fade">
-                        We deploy specialised engineering teams to solve complex integration and deployment challenges for enterprise operations.
-                    </p>
-
-                    <div class="about-pillars">
-                        <div class="pillar reveal-slide" style="transition-delay: 0s">
-                            <div class="pillar-num">01</div>
-                            <h4>Applied AI Engineering</h4>
-                            <p>Development of streaming data pipelines, agent-driven architectures, and parallel LLM processing systems.</p>
-                        </div>
-                        <div class="pillar reveal-slide" style="transition-delay: 0.15s">
-                            <div class="pillar-num">02</div>
-                            <h4>High-Performance Infrastructure</h4>
-                            <p>Architecture of event-driven microservices and high-concurrency platforms designed for scale.</p>
-                        </div>
-                        <div class="pillar reveal-slide" style="transition-delay: 0.3s">
-                            <div class="pillar-num">03</div>
-                            <h4>Technical Leadership</h4>
-                            <p>Founded by a former Lead Architect with a decade of experience shipping production systems across biotech, fintech, and enterprise SaaS.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- ==================== SERVICES ==================== -->
-    <div id="services-wrapper">
-        <div class="container">
-            <div class="section-header">
-                <span class="label reveal-fade">Services</span>
-                <h2 class="reveal-fade">Core competencies.</h2>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card reveal-slide" style="transition-delay: 0s">
-                    <div class="service-card-num">01</div>
-                    <h3>Custom AI<br />Solutions</h3>
-                    <p>
-                        Development and deployment of custom AI agents and automation systems integrated directly into your existing technology environment.
-                    </p>
-                </div>
-
-                <div class="service-card reveal-slide" style="transition-delay: 0.2s">
-                    <div class="service-card-num">02</div>
-                    <h3>Enterprise Data<br />Pipelines</h3>
-                    <p>
-                        Engineering secure, scalable architectures to extract, clean, and structure data for large language models.
-                    </p>
-                </div>
-
-                <div class="service-card reveal-slide" style="transition-delay: 0.4s">
-                    <div class="service-card-num">03</div>
-                    <h3>Forward-Deployed<br />Engineering</h3>
-                    <p>
-                        Embedding specialised engineering teams within your organisation to solve complex integration and deployment challenges.
-                    </p>
-                </div>
-
-                <div class="service-card reveal-slide" style="transition-delay: 0.6s">
-                    <div class="service-card-num">04</div>
-                    <h3>Founding Engineer<br />as a Service</h3>
-                    <p>
-                        Providing interim technical leadership to architect V1 systems, establish deployment pipelines, and de-risk technical foundations.
-                    </p>
-                </div>
-
-                <div class="service-card reveal-slide" style="transition-delay: 0.8s">
-                    <div class="service-card-num">05</div>
-                    <h3>Legacy Systems<br />Modernisation</h3>
-                    <p>
-                        Building the connective infrastructure required to link modern AI capabilities to legacy operational tools.
-                    </p>
-                </div>
-
-                <div class="service-card reveal-slide" id="card-06" style="transition-delay: 1s">
-                    <div class="service-card-num">06</div>
-                    <h3><span id="edit-title">Real-Time</span><br />Systems Engineering</h3>
-                    <p>
-                        Architecting <span id="edit-desc1">high-concurrency platforms</span> built to process thousands of events per second.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== HOW WE WORK ==================== -->
-    <section id="how-we-work">
-        <div class="container">
-            <div class="section-header">
-                <span class="label reveal-fade">Deployment Framework</span>
-                <h2 class="reveal-fade">Lifecycle.</h2>
-                <p class="reveal-fade" style="margin-top: 1rem; max-width: 60ch;">We operate on a standard deployment lifecycle to move from initial architecture to production software.</p>
-            </div>
-
-            <div class="process-grid">
-                <div class="process-step reveal-slide" style="transition-delay: 0s">
-                    <div class="process-step-num">01</div>
-                    <h3>Architecture &amp; Design</h3>
-                    <p>Mapping operational workflows and architecting the foundational AI integration strategy.</p>
-                    <div class="process-step-time">Week 1</div>
-                </div>
-
-                <div class="process-step reveal-slide" style="transition-delay: 0.15s">
-                    <div class="process-step-num">02</div>
-                    <h3>Prototyping</h3>
-                    <p>Deploying a working proof-of-concept into your environment to validate AI capabilities against real enterprise data.</p>
-                    <div class="process-step-time">Weeks 2 &ndash; 3</div>
-                </div>
-
-                <div class="process-step reveal-slide" style="transition-delay: 0.3s">
-                    <div class="process-step-num">03</div>
-                    <h3>Production Build</h3>
-                    <p>Delivering a production-grade system with monitoring, documentation, and handover.</p>
-                    <div class="process-step-time">Weeks 4 &ndash; 8</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="work-team-wrap">
-    <!-- ==================== SELECTED WORK ==================== -->
-    <section id="selected-work">
-        <div class="container">
-            <div class="section-header">
-                <span class="label reveal-fade">Track Record</span>
-                <h2 class="reveal-fade">Selected deployments.</h2>
-            </div>
-
-            <div class="work-grid">
-                <div class="work-card reveal-slide" style="transition-delay: 0s">
-                    <div class="work-card-industry">Biotech</div>
-                    <h3>AI-Powered Scientific Data Extraction</h3>
-                    <p>Embedded with scientists to architect a streaming, agent-driven platform with parallel LLM processing. Ingested and structured heterogeneous research datasets at scale for one of the world's largest biotechnology organisations.</p>
-                    <div class="work-card-stat">
-                        <div class="work-card-stat-number">Millions</div>
-                        <div class="work-card-stat-label">Records processed daily</div>
-                    </div>
-                </div>
-
-                <div class="work-card reveal-slide" style="transition-delay: 0.15s">
-                    <div class="work-card-industry">Fintech</div>
-                    <h3>Real-Time Collaboration &amp; High-Concurrency Platform</h3>
-                    <p>Acted as Founding Engineer to architect a high-throughput transaction service handling thousands of simultaneous users. Built a real-time collaboration engine enabling distributed teams to edit without sync conflicts.</p>
-                    <div class="work-card-stat">
-                        <div class="work-card-stat-number">10k+</div>
-                        <div class="work-card-stat-label">Concurrent users supported</div>
-                    </div>
-                </div>
-
-                <div class="work-card reveal-slide" style="transition-delay: 0.3s">
-                    <div class="work-card-industry">Freight &amp; Logistics</div>
-                    <h3>Intelligent Data Processing Pipeline</h3>
-                    <p>Forward deployed into a complex logistics environment to build a high-performance, event-driven microservice architecture. Processed millions of records daily through intelligent pipelines connecting disparate legacy systems.</p>
-                    <div class="work-card-stat">
-                        <div class="work-card-stat-number">30+</div>
-                        <div class="work-card-stat-label">Engineers led across the platform</div>
-                    </div>
-                </div>
-
-                <div class="work-card reveal-slide" style="transition-delay: 0.45s">
-                    <div class="work-card-industry">Social Media SaaS</div>
-                    <h3>Frontend Framework &amp; Platform Architecture</h3>
-                    <p>As lead architect, built the entire front-end architecture and UI framework from the ground up, establishing the technical foundation that powered the platform through hypergrowth from early-stage to global adoption.</p>
-                    <div class="work-card-stat">
-                        <div class="work-card-stat-number">1.5M+</div>
-                        <div class="work-card-stat-label">Daily scheduled posts</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
     <div class="mobile-bridge">
-        <img src="assets/people-working.jpg" class="founder-bg-image" alt="Applied AI Engineering Team" />
+      <img src="assets/port.jpg" class="hero-bg-image" alt="Enterprise Operations and Logistics" />
+    </div>
+
+    <!-- ==================== WHY US ==================== -->
+    <section id="why-us">
+      <div class="container">
+        <div class="about-content">
+          <span class="label reveal-fade">About</span>
+          <h2 class="reveal-fade">Engineering capability.</h2>
+          <p class="reveal-fade">
+            We deploy specialised engineering teams to solve complex integration and deployment challenges for enterprise operations.
+          </p>
+          <div class="about-pillars">
+            <div class="pillar reveal-slide">
+              <div class="pillar-num">01</div>
+              <h4>Applied AI Engineering</h4>
+              <p>Development of streaming data pipelines, agent-driven architectures, and parallel LLM processing systems.</p>
+            </div>
+            <div class="pillar reveal-slide">
+              <div class="pillar-num">02</div>
+              <h4>High-Performance Infrastructure</h4>
+              <p>Architecture of event-driven microservices and high-concurrency platforms designed for scale.</p>
+            </div>
+            <div class="pillar reveal-slide">
+              <div class="pillar-num">03</div>
+              <h4>Technical Leadership</h4>
+              <p>Founded by a former Lead Architect with a decade of experience shipping production systems across biotech, fintech, and enterprise SaaS.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== SERVICES ==================== -->
+  <div id="services-wrapper">
+    <div class="container">
+      <div class="section-header">
+        <span class="label reveal-fade">Services</span>
+        <h2 class="reveal-fade">Core competencies.</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal-slide">
+          <div class="service-card-num">01</div>
+          <h3>Custom AI<br />Solutions</h3>
+          <p>Development and deployment of custom AI agents and automation systems integrated directly into your existing technology environment.</p>
+        </div>
+        <div class="service-card reveal-slide">
+          <div class="service-card-num">02</div>
+          <h3>Enterprise Data<br />Pipelines</h3>
+          <p>Engineering secure, scalable architectures to extract, clean, and structure data for large language models.</p>
+        </div>
+        <div class="service-card reveal-slide">
+          <div class="service-card-num">03</div>
+          <h3>Forward-Deployed<br />Engineering</h3>
+          <p>Embedding specialised engineering teams within your organisation to solve complex integration and deployment challenges.</p>
+        </div>
+        <div class="service-card reveal-slide">
+          <div class="service-card-num">04</div>
+          <h3>Founding Engineer<br />as a Service</h3>
+          <p>Providing interim technical leadership to architect V1 systems, establish deployment pipelines, and de-risk technical foundations.</p>
+        </div>
+        <div class="service-card reveal-slide">
+          <div class="service-card-num">05</div>
+          <h3>Legacy Systems<br />Modernisation</h3>
+          <p>Building the connective infrastructure required to link modern AI capabilities to legacy operational tools.</p>
+        </div>
+        <div class="service-card reveal-slide" id="card-06">
+          <div class="service-card-num">06</div>
+          <h3><span id="edit-title">Real-Time</span><br />Systems Engineering</h3>
+          <p>Architecting <span id="edit-desc1">high-concurrency platforms</span> built to process thousands of events per second.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HOW WE WORK ==================== -->
+  <section id="how-we-work">
+    <div class="container">
+      <div class="section-header">
+        <span class="label reveal-fade">Deployment Framework</span>
+        <h2 class="reveal-fade">Lifecycle.</h2>
+        <p class="reveal-fade" style="margin-top: 1rem; max-width: 60ch;">We operate on a standard deployment lifecycle to move from initial architecture to production software.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step reveal-slide">
+          <div class="process-step-num">01</div>
+          <h3>Architecture &amp; Design</h3>
+          <p>Mapping operational workflows and architecting the foundational AI integration strategy.</p>
+          <div class="process-step-time">Week 1</div>
+        </div>
+        <div class="process-step reveal-slide">
+          <div class="process-step-num">02</div>
+          <h3>Prototyping</h3>
+          <p>Deploying a working proof-of-concept into your environment to validate AI capabilities against real enterprise data.</p>
+          <div class="process-step-time">Weeks 2 &ndash; 3</div>
+        </div>
+        <div class="process-step reveal-slide">
+          <div class="process-step-num">03</div>
+          <h3>Production Build</h3>
+          <p>Delivering a production-grade system with monitoring, documentation, and handover.</p>
+          <div class="process-step-time">Weeks 4 &ndash; 8</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SELECTED WORK + TEAM (share parallax image) ==================== -->
+  <div class="work-team-wrap">
+    <section id="selected-work">
+      <div class="container">
+        <div class="section-header">
+          <span class="label reveal-fade">Track Record</span>
+          <h2 class="reveal-fade">Selected deployments.</h2>
+        </div>
+        <div class="work-grid">
+          <div class="work-card reveal-slide">
+            <div class="work-card-industry">Biotech</div>
+            <h3>AI-Powered Scientific Data Extraction</h3>
+            <p>Embedded with scientists to architect a streaming, agent-driven platform with parallel LLM processing. Ingested and structured heterogeneous research datasets at scale for one of the world's largest biotechnology organisations.</p>
+            <div class="work-card-stat">
+              <div class="work-card-stat-number">Millions</div>
+              <div class="work-card-stat-label">Records processed daily</div>
+            </div>
+          </div>
+          <div class="work-card reveal-slide">
+            <div class="work-card-industry">Fintech</div>
+            <h3>Real-Time Collaboration &amp; High-Concurrency Platform</h3>
+            <p>Acted as Founding Engineer to architect a high-throughput transaction service handling thousands of simultaneous users. Built a real-time collaboration engine enabling distributed teams to edit without sync conflicts.</p>
+            <div class="work-card-stat">
+              <div class="work-card-stat-number">10k+</div>
+              <div class="work-card-stat-label">Concurrent users supported</div>
+            </div>
+          </div>
+          <div class="work-card reveal-slide">
+            <div class="work-card-industry">Freight &amp; Logistics</div>
+            <h3>Intelligent Data Processing Pipeline</h3>
+            <p>Forward deployed into a complex logistics environment to build a high-performance, event-driven microservice architecture. Processed millions of records daily through intelligent pipelines connecting disparate legacy systems.</p>
+            <div class="work-card-stat">
+              <div class="work-card-stat-number">30+</div>
+              <div class="work-card-stat-label">Engineers led across the platform</div>
+            </div>
+          </div>
+          <div class="work-card reveal-slide">
+            <div class="work-card-industry">Social Media SaaS</div>
+            <h3>Frontend Framework &amp; Platform Architecture</h3>
+            <p>As lead architect, built the entire front-end architecture and UI framework from the ground up, establishing the technical foundation that powered the platform through hypergrowth from early-stage to global adoption.</p>
+            <div class="work-card-stat">
+              <div class="work-card-stat-number">1.5M+</div>
+              <div class="work-card-stat-label">Daily scheduled posts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="mobile-bridge">
+      <img src="assets/people-working.jpg" class="founder-bg-image" alt="Applied AI Engineering Team" />
     </div>
 
     <!-- ==================== TEAM ==================== -->
     <section id="team">
-        <div class="container">
-            <div class="section-header">
-                <span class="label reveal-fade">Leadership</span>
-                <h2 class="reveal-fade">Guided by experience.</h2>
-                <p class="reveal-fade">Combining deep operational knowledge with technical architecture.</p>
-            </div>
-
-            <div class="team-member reveal-slide">
-                <h3>Kristi Buda</h3>
-                <span class="label">Lead Architect</span>
-                <p>
-                    Over a decade of engineering leadership across biotech, proptech, fintech, and enterprise SaaS, architecting AI extraction platforms, real-time collaboration systems, and high-concurrency services. Previously led teams of 30+ engineers and transformed deployment pipelines from biweekly to fully automated continuous delivery.
-                </p>
-                <p style="margin-top: 0.75rem; opacity: 0.7;">
-                    Currently partnering with ambitious enterprises to design, build, and deploy custom AI infrastructure into production environments.
-                </p>
-                <div class="team-member-links">
-                    <a href="https://buda.dev" target="_blank">Full CV &rarr;</a>
-                    <a href="https://www.linkedin.com/in/budakristi/" target="_blank">LinkedIn &rarr;</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <span class="label reveal-fade">Leadership</span>
+          <h2 class="reveal-fade">Guided by experience.</h2>
+          <p class="reveal-fade">Combining deep operational knowledge with technical architecture.</p>
         </div>
+        <div class="team-member reveal-slide">
+          <h3>Kristi Buda</h3>
+          <span class="label">Founder</span>
+          <p>
+            Over a decade of engineering leadership across biotech, proptech, fintech, and enterprise SaaS, architecting AI extraction platforms, real-time collaboration systems, and high-concurrency services. Previously led teams of 30+ engineers and transformed deployment pipelines from biweekly to fully automated continuous delivery.
+          </p>
+          <p class="team-bio-secondary">
+            Currently partnering with ambitious enterprises to design, build, and deploy custom AI infrastructure into production environments.
+          </p>
+          <div class="team-member-links">
+            <a href="https://buda.dev" target="_blank" rel="noopener">Full CV &rarr;</a>
+            <a href="https://www.linkedin.com/in/budakristi/" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+          </div>
+        </div>
+      </div>
     </section>
+  </div>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section id="testimonials" class="dark-section">
+    <div class="testimonials-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="testimonials-header">
+        <span class="label reveal-fade">Testimonials</span>
+        <h2 class="reveal-fade">Trusted by engineering leaders.</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal-slide">
+          <p class="testimonial-text">
+            "Buda's deep knowledge of design, paired with technical prowess in frontend technologies, and ability to deliver on complex backend infrastructure, really shows what kind of multi-talented individual he is. Not least, his amount of energy and resilience have allowed many people to rely on him with mission-critical deliverables."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Fabio Tamagno</h4>
+              <span>monday.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal-slide">
+          <p class="testimonial-text">
+            "I've seen firsthand that Buda is highly knowledgeable and skilled in real-time collaboration features, and has the discipline to implement clean and professional software."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Joseph Young</h4>
+              <span>Artificial Labs</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- ==================== TESTIMONIALS ==================== -->
-    <section id="testimonials" class="dark-section">
-        <div class="testimonials-glow" aria-hidden="true"></div>
-        <div class="container">
-            <div class="testimonials-header">
-                <span class="label reveal-fade">Track Record</span>
-                <h2 class="reveal-fade">Trusted by engineering leaders.</h2>
-            </div>
+  <!-- ==================== CTA ==================== -->
+  <section id="cta" class="dark-section">
+    <div class="container">
+      <div class="cta-top">
+        <span class="label reveal-fade">Contact</span>
+        <h2 class="reveal-fade">Initiate a deployment.</h2>
+        <p class="reveal-fade">Contact us to discuss your enterprise integration requirements.</p>
 
-            <div class="testimonials-grid">
-                <div class="testimonial-card reveal-slide">
-                    <p class="testimonial-text">
-                        "Buda's deep knowledge of design, paired with technical prowess in frontend technologies, and ability to deliver on complex backend infrastructure, really shows what kind of multi-talented individual he is. Not least, his amount of energy and resilience have allowed many people to rely on him with mission-critical deliverables."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Fabio Tamagno</h4>
-                            <span>monday.com</span>
-                        </div>
-                    </div>
-                </div>
+        <form id="contact-form" class="contact-form reveal-fade">
+          <input type="hidden"   name="access_key" value="8cefe3b2-6bbb-41fb-a3b4-b4e495a3fadd" />
+          <input type="hidden"   name="subject"    value="New Consultation Request from marvio.co.uk" />
+          <input type="checkbox" name="botcheck"   style="display: none;" />
+          <div class="form-grid">
+            <input type="text"  name="name"    placeholder="Name"  required />
+            <input type="email" name="email"   placeholder="Email" required />
+          </div>
+          <textarea name="message" placeholder="Tell us about your operational bottlenecks..." rows="5" required></textarea>
+          <div id="form-status" class="form-status"></div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-light magnetic"><span>Submit Request</span></button>
+          </div>
+        </form>
+      </div>
 
-                <div class="testimonial-card reveal-slide" style="transition-delay: 0.2s">
-                    <p class="testimonial-text">
-                        "I've seen firsthand that Buda is highly knowledgeable and skilled in real-time collaboration features, and has the discipline to implement clean and professional software."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Joseph Young</h4>
-                            <span>Artificial Labs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <img src="assets/logo-white.png" alt="Marvio Logo" />
+          <span>marvio.</span>
         </div>
-    </section>
-
-    <!-- ==================== CTA (DARK) ==================== -->
-    <section id="cta" class="dark-section">
-        <div class="container">
-            <div class="cta-top">
-                <span class="label reveal-fade">Contact</span>
-                <h2 class="reveal-fade">Initiate a deployment.</h2>
-                <p class="reveal-fade">
-                    Contact us to discuss your enterprise integration requirements.
-                </p>
-
-                <form id="contact-form" class="contact-form reveal-fade">
-                    <input type="hidden" name="access_key" value="8cefe3b2-6bbb-41fb-a3b4-b4e495a3fadd">
-                    <input type="hidden" name="subject" value="New Consultation Request from marvio.co.uk">
-                    <input type="checkbox" name="botcheck" style="display: none;">
-                    <div class="form-grid">
-                        <input type="text" name="name" placeholder="Name" required />
-                        <input type="email" name="email" placeholder="Email" required />
-                    </div>
-                    <textarea name="message" placeholder="Tell us about your operational bottlenecks..." rows="5" required></textarea>
-                    <div id="form-status" class="form-status"></div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-light magnetic"><span>Submit Request</span></button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="footer-logo">
-                    <img src="assets/logo-white.png" alt="Marvio Logo" />
-                    <span>marvio.</span>
-                </div>
-                <div style="color: var(--bg-primary);">&copy; Copyright Marvio All Rights Reserved</div>
-                <div class="footer-links">
-                    <a href="mailto:contact@marvio.co.uk">contact@marvio.co.uk</a>
-                </div>
-            </div>
+        <div class="footer-copy">&copy; Copyright Marvio. All Rights Reserved.</div>
+        <div class="footer-links">
+          <a href="mailto:contact@marvio.co.uk">contact@marvio.co.uk</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Scroll to Top -->
-    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="18 15 12 9 6 15" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </button>
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="18 15 12 9 6 15" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
 
-    <!-- GSAP + ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-    <script>
-        window.addEventListener('load', function () {
-
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Pre-initialize timeline to set initial states immediately
-            var heroTl = gsap.timeline({ paused: true, defaults: { ease: 'power4.out' } });
-            heroTl.from('.hero-label', { y: 30, opacity: 0, duration: 1 })
-                  .from('.line-inner', { yPercent: 105, duration: 1.2, stagger: 0.15 }, '-=0.6')
-                  .call(function () {
-                      document.querySelectorAll('.stroke-text').forEach(function (el, i) {
-                          setTimeout(function () { el.classList.add('filled'); }, i * 200);
-                      });
-                  }, null, '-=0.8')
-                  .from('.hero-sub', { y: 30, opacity: 0, duration: 1 }, '-=0.5')
-                  .from('.hero-links .btn', { y: 20, opacity: 0, duration: 0.8, stagger: 0.1 }, '-=0.7')
-                  .from('.logo', { opacity: 0, x: -20, duration: 0.8 }, '-=0.8')
-                  .from('.nav-item', { opacity: 0, x: -10, duration: 0.6, stagger: 0.08 }, '-=0.6')
-                  .from('.float-shape', { scale: 0, opacity: 0, duration: 1.5, stagger: 0.2, ease: 'elastic.out(1, 0.5)' }, '-=1.5')
-                  .fromTo('.hero-bg-image', { x: 100, opacity: 0 }, { x: 0, opacity: 0.85, duration: 1.5, ease: 'power3.out' }, '-=1.5');
-
-            // Remove CSS fallback hiding now that GSAP has inline styles
-            document.body.classList.remove('js-loading');
-
-            // Seamless cover → hero transition
-            var cover = document.getElementById('page-cover');
-            gsap.to(cover, {
-                yPercent: -100,
-                duration: 0.8,
-                ease: 'power3.inOut',
-                onComplete: function () {
-                    cover.style.display = 'none';
-                }
-            });
-
-            // Start hero animation concurrently
-            setTimeout(function() { heroTl.play(); }, 150);
-
-            // ===================== MAGNETIC BUTTONS =====================
-            if (window.innerWidth >= 768) {
-                document.querySelectorAll('.magnetic').forEach(function (btn) {
-                    btn.addEventListener('mousemove', function (e) {
-                        var rect = btn.getBoundingClientRect();
-                        var x = (e.clientX - rect.left - rect.width / 2) * 0.25;
-                        var y = (e.clientY - rect.top - rect.height / 2) * 0.25;
-                        btn.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
-                        btn.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
-                    });
-                    btn.addEventListener('mouseleave', function () {
-                        btn.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-                        btn.style.transform = '';
-                    });
-                });
-            }
-
-            // ===================== HERO SHAPES FOLLOW MOUSE =====================
-            if (window.innerWidth >= 768) {
-                var shapes = document.querySelectorAll('.float-shape');
-                var factors = [0.03, -0.04, 0.05, -0.07, 0.06];
-                var heroEl = document.getElementById('hero');
-                var mouseTicking = false;
-
-                heroEl.addEventListener('mousemove', function (e) {
-                    if (mouseTicking) return;
-                    mouseTicking = true;
-                    requestAnimationFrame(function () {
-                        var cx = window.innerWidth / 2;
-                        var cy = window.innerHeight / 2;
-                        var dx = e.clientX - cx;
-                        var dy = e.clientY - cy;
-                        shapes.forEach(function (shape, i) {
-                            var f = factors[i] || 0.03;
-                            shape.style.transform = 'translate(' + (dx * f) + 'px, ' + (dy * f) + 'px)';
-                        });
-                        mouseTicking = false;
-                    });
-                });
-            }
-
-            // ===================== SCROLL PROGRESS =====================
-            var progressBar = document.getElementById('scroll-progress');
-            var scrollTicking = false;
-            window.addEventListener('scroll', function () {
-                if (!scrollTicking) {
-                    scrollTicking = true;
-                    requestAnimationFrame(function () {
-                        var h = document.documentElement.scrollHeight - window.innerHeight;
-                        progressBar.style.transform = 'scaleX(' + (h > 0 ? window.scrollY / h : 0) + ')';
-                        scrollTicking = false;
-                    });
-                }
-            }, { passive: true });
-
-            // ===================== HERO ANIMATION =====================
-            // Hero animation is now initialized at the start of the load event to prevent flashing
-
-            // ===================== REVEAL ANIMATIONS =====================
-            var revealObs = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                        revealObs.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: "0px 0px -15% 0px", threshold: 0 });
-
-            document.querySelectorAll('.reveal-fade, .reveal-slide, .reveal-card').forEach(function (el) {
-                revealObs.observe(el);
-            });
-
-            // ===================== FOUNDER IMAGE REVEAL =====================
-            var founderImg = document.querySelector('.founder-bg-image');
-            if (founderImg) {
-                gsap.fromTo(founderImg, { x: 100, opacity: 0 }, {
-                    x: 0, opacity: 1, duration: 1.5, ease: 'power3.out',
-                    scrollTrigger: { trigger: '.work-team-wrap', start: 'top 60%' }
-                });
-            }
-
-            // ===================== PARALLAX IMAGES =====================
-            gsap.to('.hero-bg-image', {
-                yPercent: -40,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: '.hero-why-wrap',
-                    start: 'top top',
-                    end: 'bottom top',
-                    scrub: 1
-                }
-            });
-
-            gsap.to('.founder-bg-image', {
-                yPercent: -40,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: '.work-team-wrap',
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: 1
-                }
-            });
-
-            // ===================== NAV + LOGO COLOR SWAP ON DARK SECTIONS =====================
-            var lineNav = document.querySelector('.line-nav');
-            var siteLogo = document.querySelector('.logo');
-            var logoImg = document.getElementById('logo-img');
-
-            document.querySelectorAll('.dark-section').forEach(function (sec) {
-                ScrollTrigger.create({
-                    trigger: sec,
-                    start: 'top top+=60',
-                    end: 'bottom top+=60',
-                    onEnter: function () {
-                        if (siteLogo) siteLogo.classList.add('dark-bg');
-                        if (logoImg) logoImg.src = 'assets/logo-white.png';
-                    },
-                    onLeave: function () {
-                        if (siteLogo) siteLogo.classList.remove('dark-bg');
-                        if (logoImg) logoImg.src = 'assets/logo.png';
-                    },
-                    onEnterBack: function () {
-                        if (siteLogo) siteLogo.classList.add('dark-bg');
-                        if (logoImg) logoImg.src = 'assets/logo-white.png';
-                    },
-                    onLeaveBack: function () {
-                        if (siteLogo) siteLogo.classList.remove('dark-bg');
-                        if (logoImg) logoImg.src = 'assets/logo.png';
-                    }
-                });
-                ScrollTrigger.create({
-                    trigger: sec,
-                    start: 'top center',
-                    end: 'bottom center',
-                    onEnter: function () { if (lineNav) lineNav.classList.add('dark-bg'); },
-                    onLeave: function () { if (lineNav) lineNav.classList.remove('dark-bg'); },
-                    onEnterBack: function () { if (lineNav) lineNav.classList.add('dark-bg'); },
-                    onLeaveBack: function () { if (lineNav) lineNav.classList.remove('dark-bg'); }
-                });
-            });
-
-            // ===================== ACTIVE NAV TRACKING =====================
-            document.querySelectorAll('section, #services-wrapper').forEach(function (sec) {
-                ScrollTrigger.create({
-                    trigger: sec,
-                    start: 'top 40%',
-                    end: 'bottom 40%',
-                    onEnter: function () { setActiveNav(sec.id); },
-                    onEnterBack: function () { setActiveNav(sec.id); }
-                });
-            });
-
-            function setActiveNav(id) {
-                document.querySelectorAll('.nav-item').forEach(function (item) {
-                    item.classList.toggle('is-active', item.getAttribute('href') === '#' + id);
-                });
-            }
-
-            // ===================== SMOOTH ANCHOR LINKS =====================
-            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-                anchor.addEventListener('click', function (e) {
-                    var target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-
-            // ===================== SCROLL TO TOP BUTTON =====================
-            var scrollTopBtn = document.getElementById('scroll-top');
-            ScrollTrigger.create({
-                trigger: '#hero',
-                start: 'bottom top',
-                onEnter: function () { scrollTopBtn.classList.add('visible'); },
-                onEnterBack: function () { scrollTopBtn.classList.remove('visible'); }
-            });
-            scrollTopBtn.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // ===================== CONTACT FORM =====================
-            var contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    var form = e.target;
-                    var status = document.getElementById('form-status');
-                    var submitBtn = form.querySelector('button[type="submit"] span');
-                    var originalText = submitBtn.textContent;
-                    submitBtn.textContent = 'Sending...';
-                    status.style.display = 'none';
-
-                    fetch('https://api.web3forms.com/submit', {
-                        method: 'POST',
-                        body: new FormData(form)
-                    })
-                    .then(function (response) { return response.json(); })
-                    .then(function (data) {
-                        if (data.success) {
-                            status.textContent = 'Message sent successfully. We\'ll be in touch!';
-                            status.style.color = 'var(--indicator)';
-                            status.style.display = 'block';
-                            form.reset();
-                        } else {
-                            throw new Error(data.message || 'Something went wrong.');
-                        }
-                        submitBtn.textContent = originalText;
-                    })
-                    .catch(function () {
-                        status.textContent = 'Failed to send. Please email contact@marvio.co.uk directly.';
-                        status.style.color = 'var(--accent)';
-                        status.style.display = 'block';
-                        submitBtn.textContent = originalText;
-                    });
-                });
-            }
-
-            // ===================== CARD 06 COLLABORATIVE EDITING =====================
-            (function () {
-                var card = document.getElementById("card-06");
-                if (!card) return;
-
-                var cursorSvg = function(color) {
-                    return '<svg viewBox="0 0 24 24" fill="' + color + '" xmlns="http://www.w3.org/2000/svg"><path d="M5 3l14 8-6.5 1.5L11 19z"/></svg>';
-                };
-
-                var edits = [
-                    { el: document.getElementById("edit-title"), words: ["Real-Time", "Scalable", "Event-Driven", "Low-Latency"], color: "#ff6b6b", name: "Sam" },
-                    { el: document.getElementById("edit-desc1"), words: ["high-concurrency platforms", "distributed systems", "streaming pipelines", "resilient architectures"], color: "#48d1cc", name: "Jordan" }
-                ];
-
-                var running = false, loopActive = false;
-
-                function posOf(span) {
-                    var cr = card.getBoundingClientRect(), sr = span.getBoundingClientRect();
-                    return { x: sr.right - cr.left, y: sr.bottom - cr.top };
-                }
-
-                function makeCursor(color, name) {
-                    var el = document.createElement("div");
-                    el.className = "collab-cursor";
-                    el.innerHTML = cursorSvg(color) + '<span class="collab-cursor-tag" style="background:' + color + '">' + name + '</span>';
-                    el.style.opacity = "0";
-                    card.appendChild(el);
-                    return el;
-                }
-
-                function sleep(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
-
-                function moveTo(cursor, x, y, ms) {
-                    return new Promise(function(r) {
-                        cursor.style.transition = 'transform ' + ms + 'ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 300ms ease';
-                        cursor.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
-                        setTimeout(r, ms);
-                    });
-                }
-
-                async function editSpan(edit) {
-                    if (!running) return;
-                    var el = edit.el, words = edit.words, color = edit.color, name = edit.name;
-                    var oldText = el.textContent;
-                    var pool = words.filter(function(w) { return w !== oldText; });
-                    var newText = pool[Math.floor(Math.random() * pool.length)];
-                    var cursor = makeCursor(color, name);
-                    cursor.style.transform = 'translate(-30px, ' + (posOf(el).y + 40) + 'px)';
-                    await sleep(200);
-                    cursor.style.opacity = "1";
-                    var pos = posOf(el);
-                    await moveTo(cursor, pos.x, pos.y, 1600);
-                    if (!running) { cursor.remove(); return; }
-                    el.classList.add("collab-select");
-                    await sleep(1200);
-                    if (!running) { cursor.remove(); el.classList.remove("collab-select"); return; }
-                    cursor.style.opacity = "0";
-                    el.classList.add("collab-caret");
-                    el.style.borderColor = color;
-                    for (var i = oldText.length - 1; i >= 0; i--) {
-                        if (!running) break;
-                        el.textContent = oldText.slice(0, i);
-                        pos = posOf(el);
-                        cursor.style.transition = "transform 80ms linear";
-                        cursor.style.transform = 'translate(' + pos.x + 'px, ' + pos.y + 'px)';
-                        await sleep(100);
-                    }
-                    el.textContent = "";
-                    for (var j = 1; j <= newText.length; j++) {
-                        if (!running) break;
-                        el.textContent = newText.slice(0, j);
-                        pos = posOf(el);
-                        cursor.style.transition = "transform 80ms linear";
-                        cursor.style.transform = 'translate(' + pos.x + 'px, ' + pos.y + 'px)';
-                        await sleep(120);
-                    }
-                    el.classList.remove("collab-select", "collab-caret");
-                    el.style.borderColor = "";
-                    await sleep(500);
-                    cursor.remove();
-                }
-
-                async function dragSelect() {
-                    if (!running) return;
-                    var cursor = makeCursor("#0d47a1", "Alex");
-                    var cardW = card.offsetWidth, cardH = card.offsetHeight;
-                    var x1 = cardW * 0.5 + Math.random() * cardW * 0.2;
-                    var y1 = cardH * 0.2 + Math.random() * cardH * 0.3;
-                    var x2 = x1 + 60 + Math.random() * 80;
-                    var y2 = y1 + 40 + Math.random() * 50;
-                    cursor.style.transform = 'translate(' + (cardW + 30) + 'px, ' + (y1 + 20) + 'px)';
-                    await sleep(100);
-                    cursor.style.opacity = "1";
-                    await moveTo(cursor, x1, y1, 1200);
-                    if (!running) { cursor.remove(); return; }
-                    await sleep(300);
-                    var rect = document.createElement("div");
-                    rect.className = "collab-drag-rect";
-                    rect.style.borderColor = "#0d47a1";
-                    rect.style.background = "rgba(13, 71, 161, 0.06)";
-                    rect.style.opacity = "0.8";
-                    card.appendChild(rect);
-                    var steps = 30;
-                    for (var i = 0; i <= steps; i++) {
-                        if (!running) break;
-                        var t = i / steps, ease = t * t * (3 - 2 * t);
-                        var cx = x1 + (x2 - x1) * ease, cy = y1 + (y2 - y1) * ease;
-                        cursor.style.transition = "transform 40ms linear";
-                        cursor.style.transform = 'translate(' + cx + 'px, ' + cy + 'px)';
-                        rect.style.transform = 'translate(' + x1 + 'px, ' + y1 + 'px)';
-                        rect.style.width = (cx - x1) + "px";
-                        rect.style.height = (cy - y1) + "px";
-                        await sleep(50);
-                    }
-                    await sleep(800);
-                    cursor.style.opacity = "0";
-                    rect.style.opacity = "0";
-                    await sleep(500);
-                    cursor.remove();
-                    rect.remove();
-                }
-
-                async function playLoop() {
-                    if (loopActive) return;
-                    loopActive = true;
-                    await sleep(1500);
-                    if (!running) { loopActive = false; return; }
-                    var titleEdit = editSpan(edits[0]);
-                    await sleep(1000);
-                    var descEdit = editSpan(edits[1]);
-                    await sleep(1500);
-                    var alexDrag = dragSelect();
-                    await Promise.all([titleEdit, descEdit, alexDrag]);
-                    loopActive = false;
-                    // Play again after a pause if still visible
-                    if (running) {
-                        await sleep(15000);
-                        if (running) playLoop();
-                    }
-                }
-
-                var obs = new IntersectionObserver(function (entries) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting && !running) { running = true; playLoop(); }
-                        else if (!entry.isIntersecting) { running = false; }
-                    });
-                }, { threshold: 0.3 });
-                obs.observe(card);
-            })();
-
-        }); // end DOMContentLoaded
-    </script>
-
+  <!-- App scripts (order matters — main.js must load last) -->
+  <script src="js/hero.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/parallax.js"></script>
+  <script src="js/collab.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

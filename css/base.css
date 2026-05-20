@@ -1,0 +1,99 @@
+/* ==========================================================================
+   BASE — Design tokens, reset, typography
+   ========================================================================== */
+
+:root {
+  /* Palette */
+  --bg-primary:   #f8f8ff;
+  --bg-secondary: #f5deb3;
+  --bg-tertiary:  #87ceeb;
+  --text-dark:    #0d47a1;
+  --text-muted:   #a0522d;
+  --accent:       #ff6b6b;
+  --accent-glow:  rgba(255, 107, 107, 0.15);
+  --indicator:    #48d1cc;
+  --divider:      rgba(13, 71, 161, 0.08);
+
+  /* Typography */
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Spacing scale */
+  --space-xs: 0.75rem;
+  --space-sm: 1.5rem;
+  --space-md: 3rem;
+  --space-lg: 5rem;
+  --space-xl: 8rem;
+
+  /* Easing */
+  --ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-snap: all 0.4s var(--ease-snap);
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: auto; /* Smooth scroll handled by JS for control */
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  color: var(--text-dark);
+  letter-spacing: -0.03em;
+}
+
+h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.3; font-weight: 700; }
+
+/* Body copy */
+p {
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--text-dark);
+  opacity: 0.85;
+  max-width: 56ch;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover { color: var(--indicator); }
+
+img { max-width: 100%; display: block; }
+
+/* Utilities */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.highlight { color: var(--accent); }

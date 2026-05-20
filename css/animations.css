@@ -1,0 +1,135 @@
+/* ==========================================================================
+   ANIMATIONS — Scroll progress, page cover, hero shapes, reveal classes,
+                stroke-text, js-loading guards
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Scroll progress bar
+   -------------------------------------------------------------------------- */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--indicator));
+  z-index: 9997;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+/* --------------------------------------------------------------------------
+   Page cover (GSAP wipes this away on load)
+   -------------------------------------------------------------------------- */
+
+.page-cover {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--text-dark);
+}
+
+/* --------------------------------------------------------------------------
+   Hero floating shapes
+   -------------------------------------------------------------------------- */
+
+.float-shape {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  transform: translateZ(0);
+  transition: transform 1.2s var(--ease-snap);
+}
+
+.shape-1 { width: 500px; height: 500px; right: -5%;  top: 10%;    background: radial-gradient(circle, rgba(72, 209, 204, 0.12) 0%, transparent 70%); }
+.shape-2 { width: 350px; height: 350px; right: 15%;  bottom: 10%; background: radial-gradient(circle, rgba(255, 107, 107, 0.1)  0%, transparent 70%); }
+.shape-3 { width: 200px; height: 200px; right: 30%;  top: 20%;    background: radial-gradient(circle, rgba(248, 248, 255, 0.06) 0%, transparent 70%); }
+.shape-4 { width: 120px; height: 120px; right: 10%;  top: 30%;    background: radial-gradient(circle, rgba(72, 209, 204, 0.1)  0%, transparent 70%); }
+.shape-5 { width: 80px;  height: 80px;  right: 25%;  bottom: 30%; background: radial-gradient(circle, rgba(255, 107, 107, 0.08) 0%, transparent 70%); }
+
+.float-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(248, 248, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248, 248, 255, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.6;
+  mask-image: radial-gradient(ellipse 60% 60% at 80% 50%, black, transparent);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 80% 50%, black, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Hero text stroke animation
+   -------------------------------------------------------------------------- */
+
+.hero-title .line       { display: block; overflow: hidden; padding-bottom: 0.3em; margin-bottom: -0.3em; }
+.hero-title .line-inner { display: block; }
+
+.stroke-text {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(248, 248, 255, 0.7);
+  transition: color 1.5s ease, -webkit-text-stroke-color 1.5s ease;
+}
+
+.stroke-text.filled         { color: var(--bg-primary); -webkit-text-stroke-color: transparent; }
+.stroke-text.highlight      { -webkit-text-stroke-color: var(--accent); }
+.stroke-text.highlight.filled { color: var(--accent); -webkit-text-stroke-color: transparent; }
+
+@media (max-width: 768px) {
+  .stroke-text { -webkit-text-stroke-width: 1.5px; }
+}
+
+/* --------------------------------------------------------------------------
+   js-loading — hides elements before GSAP takes over
+   Prevents FOUC during the page-cover → hero transition
+   -------------------------------------------------------------------------- */
+
+.js-loading .hero-title .line-inner { transform: translateY(105%); }
+
+.js-loading .hero-content .hero-label,
+.js-loading .hero-content .hero-sub,
+.js-loading .hero-content .hero-links .btn,
+.js-loading .logo,
+.js-loading .line-nav,
+.js-loading .float-shape,
+.js-loading .hero-bg-image { opacity: 0; visibility: hidden; }
+
+/* --------------------------------------------------------------------------
+   Reveal animations (driven by IntersectionObserver in reveal.js)
+   -------------------------------------------------------------------------- */
+
+.reveal-fade,
+.reveal-slide,
+.reveal-card {
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-snap);
+}
+
+.reveal-fade.revealed,
+.reveal-slide.revealed,
+.reveal-card.revealed { opacity: 1; }
+
+/* Staggered delays via nth-child — no more inline style attributes */
+.about-pillars   .reveal-slide:nth-child(1) { transition-delay: 0s; }
+.about-pillars   .reveal-slide:nth-child(2) { transition-delay: 0.15s; }
+.about-pillars   .reveal-slide:nth-child(3) { transition-delay: 0.30s; }
+
+.services-grid   .reveal-slide:nth-child(1) { transition-delay: 0s; }
+.services-grid   .reveal-slide:nth-child(2) { transition-delay: 0.20s; }
+.services-grid   .reveal-slide:nth-child(3) { transition-delay: 0.40s; }
+.services-grid   .reveal-slide:nth-child(4) { transition-delay: 0.60s; }
+.services-grid   .reveal-slide:nth-child(5) { transition-delay: 0.80s; }
+.services-grid   .reveal-slide:nth-child(6) { transition-delay: 1.00s; }
+
+.process-grid    .reveal-slide:nth-child(1) { transition-delay: 0s; }
+.process-grid    .reveal-slide:nth-child(2) { transition-delay: 0.15s; }
+.process-grid    .reveal-slide:nth-child(3) { transition-delay: 0.30s; }
+
+.work-grid       .reveal-slide:nth-child(1) { transition-delay: 0s; }
+.work-grid       .reveal-slide:nth-child(2) { transition-delay: 0.15s; }
+.work-grid       .reveal-slide:nth-child(3) { transition-delay: 0.30s; }
+.work-grid       .reveal-slide:nth-child(4) { transition-delay: 0.45s; }
+
+.testimonials-grid .reveal-slide:nth-child(2) { transition-delay: 0.20s; }
