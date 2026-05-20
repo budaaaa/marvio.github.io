@@ -2,7 +2,7 @@ name: Build & Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch: # allow manual runs from the GitHub UI
 
 # Required for the official GitHub Pages deployment action
