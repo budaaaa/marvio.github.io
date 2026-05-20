@@ -92,16 +92,16 @@ function initNav(gsap, ScrollTrigger) {
     });
 
     // Only update if a linked section is actually visible.
-    // Exception: if we're scrolled back to the top (hero zone), clear the
-    // active item so the About line doesn't stay expanded in the hero.
+    // Exception: if we're above the first linked section (in the hero),
+    // clear the active item — scrollY < offsetTop is reliable unlike getBoundingClientRect.
     if (bestId !== null && bestRatio > 0) {
       lastBestId = bestId;
     } else if (bestRatio === 0) {
-      // Nothing linked is visible — check if we're above the first linked section
-      var firstId  = Object.keys(navMap)[0];
-      var firstEl  = firstId && document.getElementById(firstId);
-      if (firstEl && firstEl.getBoundingClientRect().top > 0) {
-        lastBestId = null; // back in hero, clear active
+      // Nothing linked is visible — if scrollY hasn't reached About yet, we're in the hero
+      var firstId = Object.keys(navMap)[0];
+      var firstEl = firstId && document.getElementById(firstId);
+      if (firstEl && window.scrollY < firstEl.offsetTop) {
+        lastBestId = null; // back in hero, deactivate all nav items
       }
     }
 
